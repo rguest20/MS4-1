@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+Index
+{% endblock title %}
+{% block content %}
+  <body>
+    <div class="login-wrap">
+      <div class="login-popup-wrap">
+        <h1 class='login-title'>Index Page</h1>
+        <form class="login-form" action="./access" method="post">
+          <div class="username-login">
+            <label for="username">Username: </label>
+            <input type="text" name="username" placeholder="username">
+          </div>
+          <div class="password-login">
+            <label for="password">Password: </label>
+            <input type="text" name="password" placeholder="password">
+          </div>
+          <div class="submit-login">
+            <input type="submit" name="submit" value="Log In">
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+{% endblock content %}

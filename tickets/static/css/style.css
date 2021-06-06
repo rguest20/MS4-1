@@ -1,0 +1,23 @@
+.login-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 12%;
+}
+.login-wrap .login-popup-wrap {
+  background: white;
+  border: 1px solid black;
+  padding: 60px 200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3fr;
+  justify-self: center;
+  text-align: center;
+}
+.login-wrap .login-popup-wrap .login-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+html {
+  background: #e6e6e6;
+}
