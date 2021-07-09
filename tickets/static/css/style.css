@@ -31,18 +31,14 @@
   display: grid;
   grid-template-rows: 3fr 3fr 2fr;
 }
-.login-wrap .login-popup-wrap .login-form .username-login,
-.login-wrap .login-popup-wrap .login-form .password-login {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-rows: 1fr 2fr;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  margin-top: 10px;
+.login-wrap .login-popup-wrap .login-form label {
+  height: 33px;
 }
-.login-wrap .login-popup-wrap .login-form .username-login input,
-.login-wrap .login-popup-wrap .login-form .password-login input {
+.login-wrap .login-popup-wrap .login-form label :nth-child(1) {
+  margin-bottom: 11px;
+}
+.login-wrap .login-popup-wrap .login-form input[type='text'],
+.login-wrap .login-popup-wrap .login-form input[type='password'] {
   border: none;
   max-width: 390px;
   background-color: #ECECEC;
@@ -52,14 +48,7 @@
   letter-spacing: 0.16px;
   line-height: 24px;
 }
-.login-wrap .login-popup-wrap .login-form .submit-login {
-  display: grid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 20px;
-}
-.login-wrap .login-popup-wrap .login-form .submit-login input {
+.login-wrap .login-popup-wrap .login-form input[type='submit'] {
   color: white;
   height: 56px;
   width: 240px;
@@ -73,7 +62,7 @@
 }
 .sidebar {
   display: grid;
-  grid-template-rows: 100px 50px 50px 50px;
+  grid-template-rows: 150px 50px 50px 50px;
 }
 .main_content.dashboard {
   display: grid;
@@ -97,6 +86,10 @@
   border-radius: 10px;
   height: 300px;
   padding: 20px;
+}
+.head_section .head-title {
+  border-left: 1px solid black;
+  padding-left: 20px;
 }
 html {
   background: #e6e6e6;

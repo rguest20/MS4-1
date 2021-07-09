@@ -30,40 +30,33 @@
       text-align: left;
       display: grid;
       grid-template-rows: 3fr 3fr 2fr;
-      .username-login, .password-login {
-        display: grid;
-        grid-gap: 10px;
-        grid-template-rows: 1fr 2fr;
-        align-items: flex-end;
-        margin-top: 10px;
-        input {
-          border: none;
-          max-width: 390px;
-          background-color: #ECECEC;
-          align-self: stretch;
-          font-size: 18px;
-          letter-spacing: 0.16px;
-          line-height: 24px;
+      label{
+        height: 33px;
+        :nth-child(1){
+          margin-bottom: 11px;
         }
       }
-      .submit-login {
-        display: grid;
-        justify-content: center;
-        margin-top: 20px;
-        input {
-          color: white;
-          height: 56px;
-          width: 240px;
-          border: none;
-          background-color: #6E6E6E;
-          font-size: 16px;
-          font-weight: bold;
-          letter-spacing: 1px;
-          line-height: 19px;
-          text-align: center;
-        }
+      input[type='text'], input[type='password'] {
+        border: none;
+        max-width: 390px;
+        background-color: #ECECEC;
+        align-self: stretch;
+        font-size: 18px;
+        letter-spacing: 0.16px;
+        line-height: 24px;
+      }
+      input[type='submit'] {
+        color: white;
+        height: 56px;
+        width: 240px;
+        border: none;
+        background-color: #6E6E6E;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        line-height: 19px;
+        text-align: center;
       }
     }
-
   }
 }
