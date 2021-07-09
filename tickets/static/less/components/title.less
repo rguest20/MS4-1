@@ -6,21 +6,63 @@
 
   .login-popup-wrap {
     background: white;
-    border: 1px solid black;
-    padding: 60px 200px;
+    border-radius: 10px;
+    padding: 100px 100px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 1fr 5fr;
     justify-self: center;
     text-align: center;
+    width: 20%;
 
     .login-title {
-
+      margin: 0;
+      font-size: 30px;
+      line-height: 34px;
+      text-align: center;
+      font-weight: normal;
     }
 
     .login-form {
+      font-size: 14px;
+      letter-spacing: 0.88px;
+      line-height: 17px;
+      text-align: left;
       display: grid;
-      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-rows: 3fr 3fr 2fr;
+      .username-login, .password-login {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-rows: 1fr 2fr;
+        align-items: flex-end;
+        margin-top: 10px;
+        input {
+          border: none;
+          max-width: 390px;
+          background-color: #ECECEC;
+          align-self: stretch;
+          font-size: 18px;
+          letter-spacing: 0.16px;
+          line-height: 24px;
+        }
+      }
+      .submit-login {
+        display: grid;
+        justify-content: center;
+        margin-top: 20px;
+        input {
+          color: white;
+          height: 56px;
+          width: 240px;
+          border: none;
+          background-color: #6E6E6E;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 1px;
+          line-height: 19px;
+          text-align: center;
+        }
+      }
     }
 
   }

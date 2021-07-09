@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class Contract(models.Model):
     contract_name = models.CharField(
@@ -14,12 +15,13 @@ class Contract(models.Model):
     def __str__(self):
         return self.contract_name
 
-class Setup(models.Model): 
+class Setup(models.Model):
     wrike_api_value = models.CharField(max_length=30)
     def __str__(self):
         return f'Settings'
 
 class Client(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     client_name = models.CharField(max_length=200)
     client_email = models.EmailField()
     live_client = models.BooleanField (default=True)
