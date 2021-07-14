@@ -72,7 +72,7 @@
 }
 .main_content.dashboard .top_section {
   padding: 20px;
-  background-color: white;
+  background-color: #f6f6f6;
   border-radius: 10px;
 }
 .main_content.dashboard .bottom_section {
@@ -82,7 +82,7 @@
 }
 .main_content.dashboard .bottom_section div {
   text-align: center;
-  background-color: white;
+  background-color: #aaaaaa;
   border-radius: 10px;
   height: 300px;
   padding: 20px;
@@ -91,8 +91,88 @@
   border-left: 1px solid black;
   padding-left: 20px;
 }
+div.account .account-section {
+  border-radius: 30px 0 0 0;
+  background-color: #ECECEC;
+  padding: 50px;
+}
+div.account .account-section .top {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+  background-color: #6E6E6E;
+  border-radius: 6px;
+}
+div.account .account-section .top .left {
+  padding: 50px;
+}
+div.account .account-section .top .left h2 {
+  color: white;
+  font-weight: normal;
+  font-size: 46px;
+  letter-spacing: 0.42px;
+  line-height: 55px;
+}
+div.account .account-section .top .left p {
+  color: white;
+  font-weight: lighter;
+  font-size: 18px;
+  letter-spacing: 0.16px;
+  line-height: 24px;
+}
+div.account .account-section .top .right {
+  text-align: center;
+  padding: 50px;
+}
+div.account .account-section .top .right img {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+div.account .account-section .bottom {
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-gap: 20px;
+}
+div.account .account-section .bottom .left {
+  background-color: white;
+}
+div.account .account-section .bottom .right {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+}
+div.account .account-section .bottom .right .cta {
+  text-align: center;
+  background-color: #AAAAAA;
+  border-radius: 6px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  color: white;
+}
+div.account .account-section .bottom .right .cta h4 {
+  margin-top: 22px;
+  margin-bottom: 14px;
+  font-size: 24px;
+  letter-spacing: 0.22px;
+  line-height: 34px;
+  font-weight: normal;
+}
+div.account .account-section .bottom .right .cta p {
+  font-weight: lighter;
+  margin-bottom: 40px;
+}
+div.account .account-section .bottom .right .cta a {
+  text-decoration: none;
+  color: #aaaaaa;
+  background-color: white;
+  padding: 20px;
+  width: 80%;
+}
 html {
-  background: #e6e6e6;
+  background: white;
   font-family: 'neuzeit-grotesk';
 }
 .main-wrap {
