@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-Dashboard
+Privacy Policy
 {% endblock title %}
 {% block content %}
     <div class="page-wrap">
@@ -13,10 +13,10 @@ Dashboard
         </div>
         <div class="main_content dashboard">
           <div class="head_section">
-            <h1 class='head-title'>Your Portal - {{ company }}</h1>
+            <h1 class='head-title'>Your Portal</h1>
           </div>
           <div class="top_section">
-            <h2>Welcome {{ company }}</h2>
+            <h2>Welcome {{ request.user }}</h2>
             <p>lorem ipsum text</p>
           </div>
           <div class="bottom_section">

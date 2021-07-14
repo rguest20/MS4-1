@@ -31,40 +31,71 @@ def index(request):
 def dashboard(request):
     if not request.user.is_authenticated:
         return redirect('/')
-    return render(request,'tickets/dashboard.html', {})
+
+    company = Client.objects.filter(user=request.user).first
+    return render(request,'tickets/dashboard.html', {'company':company})
 
 def account(request):
-    return render(request,'tickets/account.html', {})
+
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    company = Client.objects.filter(user=request.user).first
+    return render(request,'tickets/account.html', {'company': company, })
 
 def passwordupdate(request):
-    return render(request,'tickets/account/passwordupdate.html', {})
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    company = Client.objects.filter(user=request.user).first
+    return render(request,'tickets/account/passwordupdate.html', {'company':company})
 
 def notificationsettings(request):
-    return render(request,'tickets/account/notificationsettings.html', {})
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    company = Client.objects.filter(user=request.user).first
+    return render(request,'tickets/account/notificationsettings.html', {'company':company})
 
 def privacy(request):
     return render(request,'tickets/privacy.html', {})
 
-def privacy(request):
+def copyright(request):
     return render(request,'tickets/copyright.html', {})
 
 def terms(request):
     return render(request,'tickets/terms.html', {})
 
 def report(request):
-    return render(request,'tickets/report.html', {})
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    company = Client.objects.filter(user=request.user).first
+    return render(request,'tickets/report.html', {'company':company})
 
 def support(request):
-    return render(request,'tickets/support.html', {})
+    if not request.user.is_authenticated:
+        return redirect('/')
 
-def supportticket(request):
-    return render(request,'tickets/support/ticket.html', {})
+    company = Client.objects.filter(user=request.user).first
+    return render(request,'tickets/support.html', {'company':company})
+
+def supportticket(request, number):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    company = Client.objects.filter(user=request.user).first
+    return render(request,'tickets/support/ticket.html', {'company':company})
 
 def contact(request):
     return render(request,'tickets/contact.html', {})
 
 def buy(request):
-    return render(request,'tickets/buy.html', {})
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    company = Client.objects.filter(user=request.user).first
+    return render(request,'tickets/buy.html', {'company':company})
 
 def logout_view(request):
         logout(request)
