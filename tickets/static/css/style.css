@@ -171,6 +171,168 @@ div.account .account-section .bottom .right .cta a {
   padding: 20px;
   width: 80%;
 }
+div.support .support-section {
+  background-color: #ececec;
+  border-radius: 6px 0 0 0;
+  padding: 58px;
+}
+div.support .support-section .support-tab {
+  margin-bottom: 30px;
+}
+div.support .support-section .support-tab a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  padding-right: 20px;
+}
+div.support .support-section .support-tab a:hover {
+  color: #6e6e6e;
+}
+div.support .support-section .create-new {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background-color: #6e6e6e;
+  padding: 22px 50px;
+  border-radius: 6px;
+}
+div.support .support-section .create-new a {
+  position: absolute;
+  right: 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+div.support .support-section .create-new a .link {
+  background-color: white;
+  padding: 22px;
+}
+div.support .support-section .create-new a .link:hover {
+  background-color: #ececec;
+}
+div.support .support-section .table {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+div.support .support-section .table .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+div.report .report-section {
+  background-color: #ececec;
+  border-radius: 6px 0 0 0;
+  padding: 60px;
+}
+div.report .report-section .back {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+div.report .report-section .back a {
+  text-decoration: none;
+  color: black;
+}
+div.report .report-section .hero {
+  background-color: #6e6e6e;
+  border-radius: 6px;
+  padding: 22px 50px;
+  color: white;
+  position: relative;
+}
+div.report .report-section .hero .buttons {
+  position: absolute;
+  right: 50px;
+  bottom: 22px;
+}
+div.report .report-section .hero .buttons a {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+div.report .report-section .hero .buttons a div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  background-color: white;
+}
+div.report .report-section .ticket-form form {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  grid-gap: 20px;
+}
+div.report .report-section .ticket-form form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+div.report .report-section .ticket-form form label:nth-child(8) {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-top: 40px;
+}
+div.report .report-section .ticket-form form input[type=text] {
+  width: 50%;
+  height: 48px;
+}
+div.report .report-section .ticket-form form select {
+  width: 51%;
+  height: 51px;
+}
+div.report .report-section .ticket-form form .tox {
+  border: 1px solid #767676;
+}
+div.report .report-section .ticket-form form .buttons {
+  grid-column: span 2;
+}
+div.report .report-section .ticket-form form .buttons button {
+  width: 256px;
+  height: 56px;
+  background-color: #6e6e6e;
+  border: none;
+  color: white;
+}
+div.report .report-section .ticket-form form .buttons button:hover {
+  background-color: white;
+  color: black;
+}
+div.report .report-section .ticket-form form .buttons a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+}
+div.report .comments-section {
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  padding: 60px;
+  position: relative;
+}
+div.report .comments-section h3 {
+  margin-top: 0;
+}
+div.report .comments-section .buttons {
+  position: absolute;
+  right: 60px;
+  top: 40px;
+}
+div.report .comments-section .buttons button {
+  background-color: white;
+  border: none;
+  padding: 22px;
+}
 html {
   background: white;
   font-family: 'neuzeit-grotesk';

@@ -39,6 +39,7 @@ class Client(models.Model):
 
 class Ticket(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    title = models.CharField(max_length = 50, default='')
     issue = models.TextField()
     wrike_number = models.CharField(max_length = 10)
     severity = models.CharField(
@@ -57,15 +58,14 @@ class Ticket(models.Model):
     customer_feedback_requested = models.BooleanField(default=False)
     resolved = models.BooleanField(default=False)
     date_created = models.DateTimeField('Date Created')
-    file_upload = models.FileField()
+    date_updated = models.DateTimeField('Date Updated', null=True)
+    file_upload = models.FileField(null=True)
     def __str__(self):
         return f'{self.client} - {self.issue}'
 
-class FeedbackRequest(models.Model):
+class Comment(models.Model):
     ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE)
-    requested_information = models.TextField()
-    date_sent = models.DateTimeField('Date Sent')
-    client_responded = models.BooleanField(default=False)
-    response = models.TextField(blank=True)
+    comment = models.TextField()
+    date_sent = models.DateTimeField('Date Sent', blank=True)
     def __str__(self):
         return f'{self.ticket.client} - {self.ticket.issue} - Response Requested: {self.date_sent:%d-%m-%Y}'

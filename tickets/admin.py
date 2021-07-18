@@ -4,6 +4,6 @@ from .models import *
 
 admin.site.register(Client)
 admin.site.register(Ticket)
-admin.site.register(FeedbackRequest)
+admin.site.register(Comment)
 admin.site.register(Contract)
 admin.site.register(Setup)

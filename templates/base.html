@@ -2,7 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     {% load static %}
+    {{ form.media }}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/editor.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock title %}</title>
   </head>

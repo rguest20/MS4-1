@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-Report A New Issue
+Edit Ticket - {{ ticket.title }}
 {% endblock title %}
 {% block content %}
 <div class="page-wrap">
@@ -13,7 +13,7 @@ Report A New Issue
     </div>
     <div class="main_content report">
       <div class="head_section">
-        <h1 class='head-title'>Report a New Issue - {{ company }}</h1>
+        <h1 class='head-title'>Edit Ticket - {{ company }}</h1>
       </div>
       <div class="report-section">
         <div class="back">
@@ -28,7 +28,7 @@ Report A New Issue
             {{ form }}
             <div class="buttons">
               <button type="submit" name="button">Save</button>
-              <a href="/dashboard">Cancel</a>
+              <a href="/support/{{ ticket.id }}">Cancel</a>
             </div>
           </form>
         </div>

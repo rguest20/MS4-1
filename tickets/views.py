@@ -6,6 +6,7 @@ from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from datetime import datetime
 
 
 def index(request):
@@ -32,7 +33,7 @@ def dashboard(request):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    company = Client.objects.filter(user=request.user).first
+    company = Client.objects.filter(user=request.user).first()
     return render(request,'tickets/dashboard.html', {'company':company})
 
 def account(request):
@@ -40,21 +41,29 @@ def account(request):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    company = Client.objects.filter(user=request.user).first
+    company = Client.objects.filter(user=request.user).first()
     return render(request,'tickets/account.html', {'company': company, })
 
 def passwordupdate(request):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    company = Client.objects.filter(user=request.user).first
+    company = Client.objects.filter(user=request.user).first()
+    if request.method == 'POST':
+        form = PasswordForm(request.POST)
+        if form.is_valid():
+            oldpassword = request.POST['current_password']
+            new_password = request.POST['new_password']
+            verification = request.POST['please_reenter_new_password']
+            if condition:
+                pass
     return render(request,'tickets/account/passwordupdate.html', {'company':company})
 
 def notificationsettings(request):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    company = Client.objects.filter(user=request.user).first
+    company = Client.objects.filter(user=request.user).first()
     return render(request,'tickets/account/notificationsettings.html', {'company':company})
 
 def privacy(request):
@@ -70,22 +79,70 @@ def report(request):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    company = Client.objects.filter(user=request.user).first
-    return render(request,'tickets/report.html', {'company':company})
+    company = Client.objects.filter(user=request.user).first()
+    if request.method == 'POST':
+        form = NewTicketForm(request.POST)
+        if form.is_valid():
+            newticket = Ticket()
+            newticket.client = company
+            newticket.title= request.POST['subject']
+            newticket.severity = request.POST['priority']
+            newticket.issue = request.POST['description']
+            newticket.date_created = datetime.now()
+            newticket.date_updated = datetime.now()
+            newticket.save()
+            return redirect('/support')
+    form = NewTicketForm()
+    return render(request,'tickets/report.html', {'company':company, 'form':form})
 
 def support(request):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    company = Client.objects.filter(user=request.user).first
-    return render(request,'tickets/support.html', {'company':company})
+    company = Client.objects.filter(user=request.user).first()
+    tickets = Ticket.objects.filter(client__exact=company.id)
+    return render(request,'tickets/support.html', {'company':company, 'tickets':tickets})
 
 def supportticket(request, number):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    company = Client.objects.filter(user=request.user).first
-    return render(request,'tickets/support/ticket.html', {'company':company})
+    company = Client.objects.filter(user=request.user).first()
+    ticket = Ticket.objects.filter(id=number).first()
+    if company.id != ticket.client.id:
+        return redirect('/support')
+    return render(request,'tickets/support/ticket.html', {'company': company, 'ticket': ticket})
+
+def editticket(request, number):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    company = Client.objects.filter(user=request.user).first()
+    ticket = Ticket.objects.filter(id = number).first()
+    if request.method == 'POST':
+        form = NewTicketForm(request.POST)
+        if form.is_valid():
+            ticket.client = company
+            ticket.title= request.POST['subject']
+            ticket.severity = request.POST['priority']
+            ticket.issue = request.POST['description']
+            ticket.date_updated = datetime.now()
+            ticket.save()
+            return redirect('/support/' + str(ticket.id))
+    form = NewTicketForm({'subject': ticket.title, 'priority': ticket.severity, 'description': ticket.issue, 'category': 'Normal',})
+    return render(request,'tickets/support/edit.html', {'company':company, 'form':form, 'ticket': ticket})
+
+def markticket(request, number):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    ticket = Ticket.objects.filter(id = number).first()
+    if ticket.resolved == True:
+        ticket.resolved = False
+    else:
+        ticket.resolved = True
+    ticket.save()
+    return redirect('/support')
 
 def contact(request):
     return render(request,'tickets/contact.html', {})
@@ -94,7 +151,7 @@ def buy(request):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    company = Client.objects.filter(user=request.user).first
+    company = Client.objects.filter(user=request.user).first()
     return render(request,'tickets/buy.html', {'company':company})
 
 def logout_view(request):
