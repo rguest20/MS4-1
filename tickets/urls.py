@@ -22,4 +22,7 @@ urlpatterns = [
     path('account/password', auth_views.PasswordChangeView.as_view(template_name='tickets/account/passwordupdate.html', success_url='/dashboard/')),
     path('account/password/done', auth_views.PasswordChangeDoneView.as_view()),
     path('tinymce/', include('tinymce.urls')),
+    path('dashboard/admin', views.dashboard_admin, name='dashboard-admin'),
+    path('dashboard/admin/log/', views.admin_log, name='admin-log'),
+    path('dashboard/admin/companies/', views.admin_companies, name='admin-log'),
 ]

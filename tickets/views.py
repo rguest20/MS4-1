@@ -32,9 +32,55 @@ def index(request):
 def dashboard(request):
     if not request.user.is_authenticated:
         return redirect('/')
+    if request.user.is_staff:
+        return redirect('/dashboard/admin')
 
     company = Client.objects.filter(user=request.user).first()
     return render(request,'tickets/dashboard.html', {'company':company})
+
+def dashboard_admin(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    if not request.user.is_staff:
+        return redirect('/')
+
+    return render(request,'tickets/admindashboard.html', {})
+
+def admin_tickets(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    if not request.user.is_staff:
+        return redirect('/')
+
+    return render(request,'tickets/admindashboard.html', {})
+
+def admin_search(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    if not request.user.is_staff:
+        return redirect('/')
+
+    return render(request,'tickets/admindashboard.html', {})
+
+def admin_companies(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    if not request.user.is_staff:
+        return redirect('/')
+
+    companies = Client.objects.all()
+    tickets = Ticket.objects.filter(resolved = False).all()
+    return render(request,'tickets/admin/companies.html', {'tickets':tickets, 'companies': companies})
+
+def admin_log(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    if not request.user.is_staff:
+        return redirect('/')
+
+    companies = Client.objects.all()
+    tickets = Ticket.objects.filter(resolved = False).all()
+    return render(request,'tickets/admin/log.html', {'tickets':tickets, 'companies': companies})
 
 def account(request):
 
