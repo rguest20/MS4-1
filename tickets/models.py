@@ -64,7 +64,8 @@ class Ticket(models.Model):
 
 class Comment(models.Model):
     ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE)
+    sender = models.ForeignKey(Client, on_delete=models.CASCADE, null=True, blank=True)
     comment = models.TextField()
     date_sent = models.DateTimeField('Date Sent', blank=True)
     def __str__(self):
-        return f'{self.ticket.client} - {self.ticket.issue} - Response Requested: {self.date_sent:%d-%m-%Y}'
+        return f'{self.ticket.client} - {self.ticket.issue} - {self.date_sent:%d-%m-%Y}'

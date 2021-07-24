@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load jsonify %}
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block content %}
+    <div class="page-wrap">
+      <div class="main-wrap">
+        <div class="sidebar">
+          <img src="" alt="logo">
+          <a href="/dashboard">Dashboard</a>
+          <a href="/support">Support</a>
+          <a href="/account">Account</a>
+        </div>
+        <div class="main_content admin-tickets">
+          <div class="head_section">
+            <h1 class='head-title'> Ticket - {{ ticket.title }} - Administrator</h1>
+          </div>
+          <div class="admin-tickets_section">
+            <div class="ticket">
+            <h2>{{ ticket.title }}</h2>
+            <h3>Description</h3>
+            <p>{{ ticket.issue|safe }}</p>
+            <h3>Date Raised</h3>
+            <p>{{ ticket.date_created }}</p>
+            <div class="comments">
+              <div class="new">
+                <h2>New Comment</h2>
+                <form class="newcommentform" action = "./post/" method="post">
+                  {% csrf_token %}
+                  {{ form }}<br>
+                  <button type="submit" name="button">Submit</button>
+                </form>
+              </div>
+
+              <h2>Previous Comments</h2>
+              {% for comment in comments  %}
+                <h3>Comment by {{ comment.sender }}</h3>
+                <p>{{ comment.comment|safe }}</p>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    </script>
+{% endblock content %}

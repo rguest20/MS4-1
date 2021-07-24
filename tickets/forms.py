@@ -14,3 +14,8 @@ class NewTicketForm(forms.Form):
 
     class Meta:
         model = FlatPage
+
+class CommentForm(forms.Form):
+    commenter = forms.CharField(widget=forms.HiddenInput(), required = False)
+    comment = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}), required = False)
+    file_upload = forms.FileField(required = False)

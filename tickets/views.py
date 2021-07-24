@@ -52,7 +52,18 @@ def admin_tickets(request):
     if not request.user.is_staff:
         return redirect('/')
 
-    return render(request,'tickets/admindashboard.html', {})
+    tickets = Ticket.objects.filter(resolved = False).all().order_by('-date_created')
+    return render(request,'tickets/admin/tickets.html', {'tickets': tickets})
+
+def admin_tickets_single(request, number):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    if not request.user.is_staff:
+        return redirect('/')
+
+    ticket = Ticket.objects.filter(pk = number).first()
+    comments = Comment.objects.filter(ticket = number).all().order_by('-date_sent')
+    return render(request,'tickets/admin/ticket-single.html', {'ticket': ticket, 'comments': comments})
 
 def admin_search(request):
     if not request.user.is_authenticated:
@@ -69,7 +80,7 @@ def admin_companies(request):
         return redirect('/')
 
     companies = Client.objects.all()
-    tickets = Ticket.objects.all() 
+    tickets = Ticket.objects.all()
     contracts = Contract.objects.all()
     return render(request,'tickets/admin/companies.html', {'tickets':tickets, 'companies': companies})
 
@@ -81,6 +92,15 @@ def admin_log(request):
 
     companies = Client.objects.all()
     tickets = Ticket.objects.filter(resolved = False).all()
+
+    if request.method == 'POST':
+        ticket = Ticket.objects.filter(title = request.POST['ticket']).first()
+        ticketclient = ticket.client
+        ticketclient.hours_used_this_month = ticketclient.hours_used_this_month + float(request.POST['hours'])
+        ticket.hours_used = ticket.hours_used + float(request.POST['hours'])
+        ticket.save()
+        ticketclient.save()
+        return redirect('/dashboard/admin')
     return render(request,'tickets/admin/log.html', {'tickets':tickets, 'companies': companies})
 
 def account(request):
@@ -153,12 +173,15 @@ def support(request):
 def supportticket(request, number):
     if not request.user.is_authenticated:
         return redirect('/')
+    if request.user.is_staff:
+        return redirect('/dashboard/admin/tickets/' + str(number))
 
     company = Client.objects.filter(user=request.user).first()
     ticket = Ticket.objects.filter(id=number).first()
+    comments = Comment.objects.filter(ticket = ticket).all()
     if company.id != ticket.client.id:
         return redirect('/support')
-    return render(request,'tickets/support/ticket.html', {'company': company, 'ticket': ticket})
+    return render(request,'tickets/support/ticket.html', {'company': company, 'ticket': ticket, 'comments': comments})
 
 def editticket(request, number):
     if not request.user.is_authenticated:
@@ -190,6 +213,43 @@ def markticket(request, number):
         ticket.resolved = True
     ticket.save()
     return redirect('/support')
+
+def comment(request, number):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    company = Client.objects.filter(user=request.user).first()
+    ticket = Ticket.objects.filter(pk = number).first()
+
+
+    if company != ticket.client:
+        if request.user.is_staff != True:
+            return redirect('/')
+
+    form = CommentForm({'commmenter': company.client_name, 'comment': '', 'file': '',})
+    comments = Comment.objects.filter(ticket = number).all()
+    return render(request,'tickets/comment.html', {'company':company, 'form':form, 'ticket': ticket, 'comments':comments,})
+
+def comment_post(request, number):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    company = Client.objects.filter(user=request.user).first()
+    ticket = Ticket.objects.filter(pk = number).first()
+
+    if company != ticket.client:
+        if request.user.is_staff != True:
+            return redirect('/')
+
+    if request.method == 'POST':
+        newcomment = Comment()
+        newcomment.ticket = ticket
+        newcomment.sender = company
+        newcomment.comment = request.POST['comment']
+        newcomment.date_sent = datetime.now()
+        newcomment.save()
+
+    return redirect('/support/' + str(number))
 
 def contact(request):
     return render(request,'tickets/contact.html', {})

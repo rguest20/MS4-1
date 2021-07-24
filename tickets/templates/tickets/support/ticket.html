@@ -72,8 +72,14 @@ Ticket - {{ ticket.title }}
       <div class="comments-section">
         <h3>Comments</h3>
         <div class="buttons">
-          <button type="button" name="button">Leave Comment</button>
+          <a href="#">
+            <button type="button" name="button">Leave Comment</button>
+          </a>
         </div>
+        {% for comment in comments %}
+        <h4>From {{ comment.sender }}</h4>
+          <p>{{ comment.comment|safe }}</p>
+        {% endfor %}
       </div>
     </div>
   </div>
