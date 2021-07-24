@@ -17,23 +17,32 @@ Dashboard
           </div>
           <div class="admin-tickets_section">
             <div class="ticket">
-            <h2>{{ ticket.title }}</h2>
-            <h3>Description</h3>
-            <p>{{ ticket.issue|safe }}</p>
-            <h3>Date Raised</h3>
-            <p>{{ ticket.date_created }}</p>
-            <h3>Resolved</h3>
-            <p>{{ ticket.resolved }}</p>
-            <h3>Hours Worked</h3>
-            <p>{{ ticket.hours_used }}</p>
+              <div class="hero">
+                <h2>{{ ticket.title }}</h2>
+              </div>
+              <div class="information">
+                <h3>Description</h3>
+                <p>{{ ticket.issue|safe }}</p>
+                <h3>Date Raised</h3>
+                <p>{{ ticket.date_created }}</p>
+                <h3>Resolved</h3>
+                <p>{{ ticket.resolved }}</p>
+                <h3>Hours Worked</h3>
+                <p>{{ ticket.hours_used }}</p>
+              </div>
             </div>
+          </div>
             <div class="comments">
-              <h2>Comments</h2> <a href="/comment/{{ ticket.pk }}/"> <button type="button" name="button">Add Comment</button> </a>
+              <h2>Comments</h2>
+              <div class="buttons">
+                <a href="/comment/{{ ticket.pk }}/"> <button type="button" name="button">Add Comment</button> </a>
+              </div>
               {% for comment in comments  %}
+              <div class="comment">
                 <h3>Comment by {{ comment.sender }}</h3>
                 <p>{{ comment.comment|safe }}</p>
+              </div>
               {% endfor %}
-            </div>
           </div>
         </div>
       </div>

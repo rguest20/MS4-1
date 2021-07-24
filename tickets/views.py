@@ -165,6 +165,8 @@ def report(request):
 def support(request):
     if not request.user.is_authenticated:
         return redirect('/')
+    if request.user.is_staff:
+        return redirect('/dashboard/admin')
 
     company = Client.objects.filter(user=request.user).first()
     tickets = Ticket.objects.filter(client__exact=company.id)

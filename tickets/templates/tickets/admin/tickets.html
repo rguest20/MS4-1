@@ -11,14 +11,13 @@ Dashboard
           <a href="/dashboard">Dashboard</a>
           <a href="/account">Account</a>
         </div>
-        <div class="main_content admin-tickets">
+        <div class="main_content admin-tickets-multi">
           <div class="head_section">
             <h1 class='head-title'>Tickets - Administrator</h1>
           </div>
-          <div class="admin-tickets_section">
-            <h2>Tickets</h2>
-            <div class="filters">
-
+          <div class="admin-tickets-multi_section">
+            <div class="hero">
+              <h2>Current Tickets - Newest First</h2>
             </div>
             <div class="tickets">
 
@@ -30,19 +29,23 @@ Dashboard
     <script type="text/javascript">
     tickets = {{ tickets|jsonify }}
     window.onload = function () {
+      var index = 1
       tickets.forEach((ticket, i) => {
+        var div = document.createElement('div')
+        div.classList.add('ticket')
         var target = document.querySelector('.tickets')
+        target.append(div)
         var link = document.createElement('a')
         var newline = document.createElement('br')
         var description = document.createElement('p')
         link.href = './' + ticket.pk
         link.innerHTML = String(ticket.pk) + ' - ' + ticket.fields.title
         description.innerHTML = ticket.fields.issue
-        console.log(link)
-        target.append(link)
-        target.append(newline)
-        target.append(description)
-        target.append(newline)
+        div.append(link)
+        div.append(newline)
+        div.append(description)
+        div.append(newline)
+        index += 1
       });
 
     }
