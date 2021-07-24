@@ -614,6 +614,7 @@ div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket a {
   text-decoration: none;
   text-transform: uppercase;
   color: white;
+  font-weight: bold;
 }
 div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket a:hover {
   color: #e6e6e6;
