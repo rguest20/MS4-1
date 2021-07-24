@@ -400,6 +400,72 @@ div.report .comments-section .buttons button {
 .main_content.admin-log .bottom_section .hidden {
   display: none;
 }
+.main_content.admin-companies {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-gap: 20px;
+  padding-right: 250px;
+}
+.main_content.admin-companies .admin-companies_section {
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div input {
+  width: 30%;
+  height: 52px;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div select {
+  width: 31%;
+  height: 52px;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div label {
+  margin: 20px 0;
+  display: block;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div button {
+  margin-top: 20px;
+  width: 20%;
+  height: 50px;
+  background: white;
+  border: none;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div button:hover {
+  background: #e6e6e6;
+}
+.main_content.admin-companies .admin-companies_section .hidden {
+  display: none;
+}
+.main_content.admin-companies .bottom_section div {
+  background-color: #aaaaaa;
+  border-radius: 10px;
+  padding: 20px;
+}
+.main_content.admin-companies .bottom_section div input {
+  width: 30%;
+  height: 52px;
+}
+.main_content.admin-companies .bottom_section div select {
+  width: 31%;
+  height: 52px;
+}
+.main_content.admin-companies .bottom_section div label {
+  margin: 20px 0;
+  display: block;
+}
+.main_content.admin-companies .bottom_section div button {
+  margin-top: 20px;
+  width: 20%;
+  height: 50px;
+  background: white;
+  border: none;
+}
+.main_content.admin-companies .bottom_section div button:hover {
+  background: #e6e6e6;
+}
+.main_content.admin-companies .bottom_section .hidden {
+  display: none;
+}
 html {
   background: white;
   font-family: 'neuzeit-grotesk';

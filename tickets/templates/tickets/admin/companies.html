@@ -18,8 +18,8 @@ Dashboard
           </div>
           <div class="admin-companies_section">
             <h2>Company lookup</h2>
-            <p>Please first choose a company for which to log a time</p>
-            <p>Then select the ticket and add time via the form</p>
+            <p>Please first choose a company to check</p>
+            <p>To search another, press the 'search another' button</p>
             <div class="enter-company">
               <p>Company:</p>
                 <div class="">
@@ -32,27 +32,27 @@ Dashboard
                </select>
              </div>
              <div class="button">
-               <button type="button" name="button" onclick='check()'>Check</button>
+               <button type="button" name="button" onclick='companyLookup()'>Check</button>
              </div>
             </div>
           </div>
           <div class="bottom_section">
             <div class="enter-ticket hidden">
-              <h4>Results</h4>
-              <form class="ticket-time" action="" method="post">
-                {% csrf_token %}
-                <select class="ticket" name="ticket">
-                </select><br>
-                <label for="hours">Hours Worked: </label>
-                <input id='hours' type="text" name="hours" value="" required><br>
-                <button type="submit" name="button">Enter Hours</button>
-              </form>
+              <h4 id='company-name'></h4>
+              <p id='registered'>Registered: </p>
+              <p id='contract'>Contracted Monthly Hours: </p>
+              <p id='tickets-raised'>Tickets Raised: </p>
+              <p id='outstanding-tickets'>Outstanding: </p>
+              <p id='hours-worked'>Hours Worked: </p>
+              <p id='hours-remaining'>Remaining Hours: </p>
+              <button type="button" name="button" onclick='refresh()'>Search Another</button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <script type="text/javascript">
+    var contracts = {{ contracts|jsonify }}
     var tickets = {{ tickets|jsonify }}
     var clients = {{ companies|jsonify }}
     </script>

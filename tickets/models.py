@@ -9,7 +9,6 @@ class Contract(models.Model):
     ('1hour', '1 Hour Per Month'),
     ('2hour', '2 Hours Per Month'),
     ('4hour', '4 Hours Per Month'),
-    ('other', 'Bespoke')
     ]
     )
     def __str__(self):

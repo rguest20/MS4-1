@@ -69,7 +69,8 @@ def admin_companies(request):
         return redirect('/')
 
     companies = Client.objects.all()
-    tickets = Ticket.objects.filter(resolved = False).all()
+    tickets = Ticket.objects.all() 
+    contracts = Contract.objects.all()
     return render(request,'tickets/admin/companies.html', {'tickets':tickets, 'companies': companies})
 
 def admin_log(request):
