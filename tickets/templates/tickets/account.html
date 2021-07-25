@@ -19,7 +19,7 @@ Your Account
             <div class="top">
               <div class="left">
                 <h2>Your Profile</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>This area allows you to keep your details up to date so if we need to contact you, we can do.  This will also be used for website builds to allow us to enter your information accurately</p>
               </div>
               <div class="right">
                 <div class="image">
@@ -33,19 +33,23 @@ Your Account
                 <div class="profileinfo">
                   <div class="profileline name">
                     <p>Name:</p>
-                    <p>{{ company }}</p>
+                    <p>{{ company.client_name }}</p>
+                  </div>
+                  <div class="profileline name">
+                    <p>Live Client:</p>
+                    <p>{{ company.live_client }}</p>
                   </div>
                   <div class="profileline">
-
+                    <p>Company Address:</p>
+                    <p>{{ company.client_address }}</p>
                   </div>
                   <div class="profileline">
-
+                    <p>Registered Company Number:</p>
+                    <p>{{ company.client_registered_company_number }}</p>
                   </div>
                   <div class="profileline">
-
-                  </div>
-                  <div class="profileline">
-
+                    <p>Contact Email:</p>
+                    <p>{{ company.client_email }}</p>
                   </div>
                   <div class="button">
                     <a href="/account/edit">Edit Profile</a>

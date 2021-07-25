@@ -9,6 +9,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('logout/', views.logout_view, name='logout'),
     path('account/', views.account, name='account'),
+    path('account/edit', views.account_edit, name='account'),
     path('account/notification', views.notificationsettings, name='notification'),
     path('copyright/', views.copyright, name='copyright'),
     path('terms/', views.terms, name='terms'),
@@ -24,9 +25,15 @@ urlpatterns = [
     path('account/password', auth_views.PasswordChangeView.as_view(template_name='tickets/account/passwordupdate.html', success_url='/dashboard/')),
     path('account/password/done', auth_views.PasswordChangeDoneView.as_view()),
     path('tinymce/', include('tinymce.urls')),
+    path("stripe/", include("djstripe.urls", namespace="djstripe")),
     path('dashboard/admin', views.dashboard_admin, name='dashboard-admin'),
     path('dashboard/admin/log/', views.admin_log, name='admin-log'),
     path('dashboard/admin/companies/', views.admin_companies, name='admin-companies'),
     path('dashboard/admin/tickets/', views.admin_tickets, name='admin-tickets'),
     path('dashboard/admin/tickets/<int:number>', views.admin_tickets_single, name='admin-tickets-single'),
+    path('config/', views.stripe_config),
+    path('create-checkout-session/', views.create_checkout_session),
+    path('cancelled/', views.cancelled, name='cancelled'),
+    path('success/', views.success, name='success'),
+
 ]

@@ -23,6 +23,8 @@ class Client(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     client_name = models.CharField(max_length=200)
     client_email = models.EmailField()
+    client_address = models.CharField(max_length=200, null = True, blank = True)
+    client_registered_company_number = models.CharField(max_length=30, null = True, blank = True)
     live_client = models.BooleanField (default=True)
     date_registered = models.DateTimeField('Date Registered')
     contract_type = models.ForeignKey(Contract, on_delete=models.CASCADE)

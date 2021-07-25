@@ -65,3 +65,18 @@ function companyLookup() {
 function refresh() {
   location.reload();
 }
+
+function setupStripe() {
+  fetch("http://localhost:8000/config")
+  .then((result) => { return result.json(); })
+  .then((data) => {
+    // Initialize Stripe.js
+    stripe = Stripe(data.publicKey);
+  });
+}
+
+function updatePrice() {
+  hours = document.querySelector('#hours').value
+  target = document.querySelector('#price')
+  target.innerHTML = hours * 100
+}

@@ -22,3 +22,9 @@ class CommentForm(forms.Form):
     commenter = forms.CharField(widget=forms.HiddenInput(), required = False)
     comment = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}), required = False)
     hcaptcha = hCaptchaField()
+
+class AccountUpdateForm(forms.Form):
+    company_name = forms.CharField()
+    address = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}), required = False)
+    company_registration_number = forms.CharField()
+    company_email = forms.EmailField()
