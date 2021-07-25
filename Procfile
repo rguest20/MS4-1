@@ -1,1 +1,1 @@
-web: gunicorn emc_tickets:application
+web: gunicorn emc_tickets.wsgi
