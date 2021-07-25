@@ -30,7 +30,7 @@ Buy More Hours
   window.onload = setupStripe()
   document.querySelector("#buyButton").addEventListener("click", () => {
   // Get Checkout Session ID
-  fetch("/create-checkout-session/", {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: ('quantity=' + document.querySelector('#hours').value)})
+  fetch("/create-checkout-session/", {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: ('quantity=' + parseInt(document.querySelector('#hours').value))})
   .then((result) => { return result.json(); })
   .then((data) => {
     console.log(data);
