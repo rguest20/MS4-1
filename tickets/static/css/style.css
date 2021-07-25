@@ -765,6 +765,9 @@ html {
 .logout a:hover {
   color: #6e6e6e;
 }
+.sidebar img {
+  max-width: 230px;
+}
 .sidebar a {
   text-decoration: none;
   text-transform: uppercase;
