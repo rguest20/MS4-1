@@ -3,3 +3,6 @@ datetime
 dnspython
 python-dotenv
 gunicorn
+django-tinymce
+django-jsonify
+django-hCaptcha
