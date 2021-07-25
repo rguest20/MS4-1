@@ -1,0 +1,789 @@
+@import "https://use.typekit.net/ybg5bxl.css";
+.login-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.login-wrap .login-popup-wrap {
+  background: #e6e6e6;
+  border-radius: 10px;
+  padding: 100px 100px;
+  display: grid;
+  justify-self: center;
+  text-align: center;
+}
+.login-wrap .login-popup-wrap img {
+  max-width: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .login-wrap .login-popup-wrap {
+    padding: 10px 10px;
+  }
+}
+.login-wrap .login-popup-wrap .login-title {
+  margin: 0;
+  font-size: 30px;
+  line-height: 34px;
+  text-align: center;
+  font-weight: normal;
+}
+.login-wrap .login-popup-wrap .login-form {
+  font-size: 14px;
+  letter-spacing: 0.88px;
+  line-height: 17px;
+  text-align: left;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.login-wrap .login-popup-wrap .login-form label {
+  margin: 15px 0;
+}
+.login-wrap .login-popup-wrap .login-form input[type='text'] {
+  border: none;
+  height: 52px;
+  max-width: 390px;
+  background-color: white;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  font-size: 18px;
+  letter-spacing: 0.16px;
+  line-height: 24px;
+}
+.login-wrap .login-popup-wrap .login-form input[type='password'] {
+  background-color: white;
+  height: 52px;
+}
+.login-wrap .login-popup-wrap .login-form input[type='submit'] {
+  color: white;
+  height: 56px;
+  width: 240px;
+  border: none;
+  background-color: #6E6E6E;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 19px;
+  text-align: center;
+}
+.sidebar {
+  display: grid;
+  grid-template-rows: 150px 50px 50px 50px;
+}
+.main_content.dashboard {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-gap: 20px;
+  padding-right: 250px;
+}
+.main_content.dashboard .top_section {
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+.main_content.dashboard .bottom_section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+.main_content.dashboard .bottom_section div {
+  background-color: #aaaaaa;
+  border-radius: 10px;
+  height: 300px;
+  padding: 20px;
+  position: relative;
+}
+.main_content.dashboard .bottom_section div a {
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #e6e6e6;
+  padding: 20px;
+  position: absolute;
+  bottom: 20px;
+  color: black;
+}
+.main_content.dashboard .bottom_section div a:hover {
+  color: white;
+  background-color: #6e6e6e;
+}
+.main_content.admin-dashboard {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-gap: 20px;
+  padding-right: 250px;
+}
+.main_content.admin-dashboard .top_section {
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+.main_content.admin-dashboard .bottom_section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+.main_content.admin-dashboard .bottom_section div {
+  background-color: #aaaaaa;
+  border-radius: 10px;
+  height: 300px;
+  padding: 20px;
+  position: relative;
+}
+.main_content.admin-dashboard .bottom_section div a {
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #e6e6e6;
+  padding: 20px;
+  position: absolute;
+  bottom: 20px;
+  color: black;
+}
+.main_content.admin-dashboard .bottom_section div a:hover {
+  color: white;
+  background-color: #6e6e6e;
+}
+.head_section .head-title {
+  border-left: 1px solid black;
+  padding-left: 20px;
+}
+div.account .account-section {
+  border-radius: 30px 0 0 0;
+  background-color: #ECECEC;
+  padding: 50px;
+}
+div.account .account-section .top {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+  background-color: #6E6E6E;
+  border-radius: 6px;
+}
+div.account .account-section .top .left {
+  padding: 50px;
+}
+div.account .account-section .top .left h2 {
+  color: white;
+  font-weight: normal;
+  font-size: 46px;
+  letter-spacing: 0.42px;
+  line-height: 55px;
+}
+div.account .account-section .top .left p {
+  color: white;
+  font-weight: lighter;
+  font-size: 18px;
+  letter-spacing: 0.16px;
+  line-height: 24px;
+}
+div.account .account-section .top .right {
+  text-align: center;
+  padding: 50px;
+}
+div.account .account-section .top .right img {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+div.account .account-section .bottom {
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-gap: 20px;
+}
+div.account .account-section .bottom .left {
+  background-color: white;
+  padding: 50px;
+  border-radius: 6px;
+  position: relative;
+}
+div.account .account-section .bottom .left .profileinfo .profileline {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+div.account .account-section .bottom .left a {
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+  background-color: #6e6e6e;
+  padding: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+div.account .account-section .bottom .left a:hover {
+  background-color: #e6e6e6;
+  color: black;
+}
+div.account .account-section .bottom .right {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+}
+div.account .account-section .bottom .right .cta {
+  text-align: center;
+  background-color: #AAAAAA;
+  border-radius: 6px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  color: white;
+}
+div.account .account-section .bottom .right .cta h4 {
+  margin-top: 22px;
+  margin-bottom: 14px;
+  font-size: 24px;
+  letter-spacing: 0.22px;
+  line-height: 34px;
+  font-weight: normal;
+}
+div.account .account-section .bottom .right .cta p {
+  font-weight: lighter;
+  margin-bottom: 40px;
+}
+div.account .account-section .bottom .right .cta a {
+  text-decoration: none;
+  color: #aaaaaa;
+  background-color: white;
+  padding: 20px;
+  width: 80%;
+}
+div.account .account-section .bottom .right .cta a:hover {
+  color: white;
+  background-color: #6e6e6e;
+}
+div.support .support-section {
+  background-color: #ececec;
+  border-radius: 6px 0 0 0;
+  padding: 58px;
+}
+div.support .support-section .support-tab {
+  margin-bottom: 30px;
+}
+div.support .support-section .support-tab a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  padding-right: 20px;
+}
+div.support .support-section .support-tab a:hover {
+  color: #6e6e6e;
+}
+div.support .support-section .create-new {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background-color: #6e6e6e;
+  padding: 22px 50px;
+  border-radius: 6px;
+}
+div.support .support-section .create-new a {
+  position: absolute;
+  right: 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+div.support .support-section .create-new a .link {
+  background-color: white;
+  padding: 22px;
+}
+div.support .support-section .create-new a .link:hover {
+  background-color: #ececec;
+}
+div.support .support-section .table {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+div.support .support-section .table .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+div.report .report-section {
+  background-color: #ececec;
+  border-radius: 6px 0 0 0;
+  padding: 60px;
+}
+div.report .report-section .back {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+div.report .report-section .back a {
+  text-decoration: none;
+  color: black;
+}
+div.report .report-section .hero {
+  background-color: #6e6e6e;
+  border-radius: 6px;
+  padding: 22px 50px;
+  color: white;
+  position: relative;
+}
+div.report .report-section .hero .buttons {
+  position: absolute;
+  right: 50px;
+  bottom: 22px;
+}
+div.report .report-section .hero .buttons a {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+div.report .report-section .hero .buttons a div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  background-color: white;
+}
+div.report .report-section .hero .buttons a div:hover {
+  background-color: #e6e6e6;
+}
+div.report .report-section .ticket-form form {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  grid-gap: 20px;
+}
+div.report .report-section .ticket-form form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+div.report .report-section .ticket-form form label:nth-child(8) {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-top: 40px;
+}
+div.report .report-section .ticket-form form input[type=text] {
+  width: 50%;
+  height: 48px;
+}
+div.report .report-section .ticket-form form select {
+  width: 51%;
+  height: 51px;
+}
+div.report .report-section .ticket-form form .tox {
+  border: 1px solid #767676;
+}
+div.report .report-section .ticket-form form .buttons {
+  grid-column: span 2;
+}
+div.report .report-section .ticket-form form .buttons button {
+  width: 256px;
+  height: 56px;
+  background-color: #6e6e6e;
+  border: none;
+  color: white;
+}
+div.report .report-section .ticket-form form .buttons button:hover {
+  background-color: white;
+  color: black;
+}
+div.report .report-section .ticket-form form .buttons a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+}
+div.report .comments-section {
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  padding: 60px;
+  position: relative;
+}
+div.report .comments-section h3 {
+  margin-top: 0;
+}
+div.report .comments-section .buttons {
+  position: absolute;
+  right: 60px;
+  top: 40px;
+}
+div.report .comments-section .buttons button {
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  padding: 22px;
+}
+div.report .comments-section .buttons button:hover {
+  background-color: #6e6e6e;
+  color: white;
+}
+.main_content.admin-log {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-gap: 20px;
+  padding-right: 250px;
+}
+.main_content.admin-log .admin-log_section {
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+.main_content.admin-log .admin-log_section .enter-company div input {
+  width: 30%;
+  height: 52px;
+}
+.main_content.admin-log .admin-log_section .enter-company div select {
+  width: 31%;
+  height: 52px;
+}
+.main_content.admin-log .admin-log_section .enter-company div label {
+  margin: 20px 0;
+  display: block;
+}
+.main_content.admin-log .admin-log_section .enter-company div button {
+  margin-top: 20px;
+  width: 20%;
+  height: 50px;
+  background: white;
+  border: none;
+}
+.main_content.admin-log .admin-log_section .enter-company div button:hover {
+  background: #e6e6e6;
+}
+.main_content.admin-log .admin-log_section .hidden {
+  display: none;
+}
+.main_content.admin-log .bottom_section div {
+  background-color: #aaaaaa;
+  border-radius: 10px;
+  height: 300px;
+  padding: 20px;
+}
+.main_content.admin-log .bottom_section div input {
+  width: 30%;
+  height: 52px;
+}
+.main_content.admin-log .bottom_section div select {
+  width: 31%;
+  height: 52px;
+}
+.main_content.admin-log .bottom_section div label {
+  margin: 20px 0;
+  display: block;
+}
+.main_content.admin-log .bottom_section div button {
+  margin-top: 20px;
+  width: 20%;
+  height: 50px;
+  background: white;
+  border: none;
+}
+.main_content.admin-log .bottom_section div button:hover {
+  background: #e6e6e6;
+}
+.main_content.admin-log .bottom_section .hidden {
+  display: none;
+}
+.main_content.admin-companies {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-gap: 20px;
+  padding-right: 250px;
+}
+.main_content.admin-companies .admin-companies_section {
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div input {
+  width: 30%;
+  height: 52px;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div select {
+  width: 31%;
+  height: 52px;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div label {
+  margin: 20px 0;
+  display: block;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div button {
+  margin-top: 20px;
+  width: 20%;
+  height: 50px;
+  background: white;
+  border: none;
+}
+.main_content.admin-companies .admin-companies_section .enter-company div button:hover {
+  background: #e6e6e6;
+}
+.main_content.admin-companies .admin-companies_section .hidden {
+  display: none;
+}
+.main_content.admin-companies .bottom_section div {
+  background-color: #aaaaaa;
+  border-radius: 10px;
+  padding: 20px;
+}
+.main_content.admin-companies .bottom_section div input {
+  width: 30%;
+  height: 52px;
+}
+.main_content.admin-companies .bottom_section div select {
+  width: 31%;
+  height: 52px;
+}
+.main_content.admin-companies .bottom_section div label {
+  margin: 20px 0;
+  display: block;
+}
+.main_content.admin-companies .bottom_section div button {
+  margin-top: 20px;
+  width: 20%;
+  height: 50px;
+  background: white;
+  border: none;
+}
+.main_content.admin-companies .bottom_section div button:hover {
+  background: #e6e6e6;
+}
+.main_content.admin-companies .bottom_section .hidden {
+  display: none;
+}
+div.passwordupdate .password-section {
+  background-color: #e6e6e6;
+  padding: 50px;
+  border-radius: 6px 0 0 0;
+}
+div.passwordupdate .password-section .changepasswordform form {
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  grid-gap: 20px;
+}
+div.passwordupdate .password-section .changepasswordform form input[type='password'] {
+  height: 52px;
+  width: 50%;
+}
+@media only screen and (max-width: 1000px) {
+  div.passwordupdate .password-section .changepasswordform form input[type='password'] {
+    width: 100%;
+  }
+}
+div.passwordupdate .password-section .changepasswordform form button {
+  margin-top: 20px;
+  height: 52px;
+  width: 200px;
+  background-color: white;
+  border: none;
+}
+div.passwordupdate .password-section .changepasswordform form button:hover {
+  background-color: #6e6e6e;
+  color: white;
+  cursor: pointer;
+}
+div.admin-tickets {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+}
+div.admin-tickets .admin-tickets_section {
+  background-color: #e6e6e6;
+  padding: 50px;
+  border-radius: 6px 0 0 0;
+  margin-bottom: 20px;
+}
+div.admin-tickets .admin-tickets_section .hero {
+  background-color: #6e6e6e;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+div.admin-tickets .admin-tickets_section .information {
+  padding: 0 20px;
+}
+div.admin-tickets .comments {
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  border-radius: 6px 0 0 0;
+  padding: 60px;
+  position: relative;
+}
+div.admin-tickets .comments h3 {
+  margin-top: 0;
+}
+div.admin-tickets .comments .buttons {
+  position: absolute;
+  right: 60px;
+  top: 60px;
+}
+div.admin-tickets .comments .buttons button {
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  padding: 22px;
+}
+div.admin-tickets .comments .buttons button:hover {
+  background-color: #6e6e6e;
+  color: white;
+}
+div.admin-tickets .comments .comment {
+  background-color: #6e6e6e;
+  color: white;
+  padding: 20px;
+}
+div.admin-tickets .comments .comment:nth-child(2n) {
+  background-color: #000;
+}
+div.admin-tickets .comments .comment p {
+  margin-bottom: 0;
+}
+div.admin-tickets-multi {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+}
+div.admin-tickets-multi .admin-tickets-multi_section {
+  background-color: #e6e6e6;
+  padding: 50px;
+  border-radius: 6px 0 0 0;
+  margin-bottom: 20px;
+}
+div.admin-tickets-multi .admin-tickets-multi_section .hero {
+  background-color: #6e6e6e;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+div.admin-tickets-multi .admin-tickets-multi_section .tickets {
+  margin: 20px 0;
+  border-radius: 6px;
+}
+div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket {
+  padding: 20px;
+  background-color: #6e6e6e;
+  color: white;
+}
+div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket:nth-child(2n) {
+  background-color: #3a3a3a;
+}
+div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+}
+div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket a:hover {
+  color: #e6e6e6;
+}
+div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket:first-child {
+  border-radius: 6px 6px 0 0;
+}
+div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket:last-child {
+  border-radius: 0 0 6px 6px;
+}
+div.buy .buy-section {
+  background-color: #e6e6e6;
+  padding: 50px;
+  border-radius: 6px 0 0 0;
+}
+div.buy .buy-section label {
+  display: block;
+}
+div.buy .buy-section input {
+  height: 52px;
+  width: 300px;
+  margin-top: 20px;
+}
+div.buy .buy-section p {
+  border-top: 1px solid black;
+  width: 300px;
+  padding-top: 10px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+div.buy .buy-section button {
+  width: 200px;
+  height: 52px;
+  background-color: white;
+  border: none;
+  text-transform: uppercase;
+}
+div.buy .buy-section button:hover {
+  background-color: #6e6e6e;
+  color: white;
+  cursor: pointer;
+}
+div.accountupdate .accountupdate-section {
+  background-color: #e6e6e6;
+  padding: 50px;
+  border-radius: 6px 0 0 0;
+}
+div.accountupdate .accountupdate-section label {
+  display: block;
+}
+div.accountupdate .accountupdate-section input[type='text'],
+div.accountupdate .accountupdate-section input[type='email'] {
+  height: 52px;
+  width: 300px;
+  margin-top: 20px;
+}
+div.accountupdate .accountupdate-section button[type='submit'] {
+  width: 200px;
+  height: 52px;
+  background: white;
+  border: none;
+}
+div.accountupdate .accountupdate-section button[type='submit']:hover {
+  background-color: #6e6e6e;
+  color: white;
+  cursor: pointer;
+}
+html {
+  background: white;
+  font-family: 'neuzeit-grotesk';
+}
+.main-wrap {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+.logout {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 30px;
+}
+.logout a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+.logout a:hover {
+  color: #6e6e6e;
+}
+.sidebar img {
+  max-width: 230px;
+}
+.sidebar a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+.sidebar a:hover {
+  color: #6e6e6e;
+}
+.errorlist {
+  color: red;
+  list-style-type: none;
+}
