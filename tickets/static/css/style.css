@@ -718,6 +718,31 @@ div.buy .buy-section button:hover {
   color: white;
   cursor: pointer;
 }
+div.accountupdate .accountupdate-section {
+  background-color: #e6e6e6;
+  padding: 50px;
+  border-radius: 6px 0 0 0;
+}
+div.accountupdate .accountupdate-section label {
+  display: block;
+}
+div.accountupdate .accountupdate-section input[type='text'],
+div.accountupdate .accountupdate-section input[type='email'] {
+  height: 52px;
+  width: 300px;
+  margin-top: 20px;
+}
+div.accountupdate .accountupdate-section button[type='submit'] {
+  width: 200px;
+  height: 52px;
+  background: white;
+  border: none;
+}
+div.accountupdate .accountupdate-section button[type='submit']:hover {
+  background-color: #6e6e6e;
+  color: white;
+  cursor: pointer;
+}
 html {
   background: white;
   font-family: 'neuzeit-grotesk';
