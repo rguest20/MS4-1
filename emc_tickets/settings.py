@@ -31,7 +31,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
 'ms4-rguest.herokuapp.com'
@@ -103,7 +103,7 @@ DATABASES = {
 
             'HOST': os.environ.get('POSTGRES_DB_HOST'),
 
-            'PORT': os.environ.get('POSTGRES_DB_PORT'),           
+            'PORT': os.environ.get('POSTGRES_DB_PORT'),
     }
 }
 
