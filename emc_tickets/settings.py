@@ -15,13 +15,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_DIR = BASE_DIR / 'static'
-
-# Extra places for collectstatic to find static files.
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+STATICFILES_DIRS = (os.path.join(
+    BASE_DIR, "tickets", "static"),)
+STATIC_ROOT = os.path.join(
+    os.path.dirname(BASE_DIR), "tickets", "static")
 
 
 # Quick-start development settings - unsuitable for production
