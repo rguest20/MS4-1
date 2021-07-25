@@ -19,8 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     ]
-STATIC_ROOT = os.path.join(
-    os.path.dirname(BASE_DIR), "static")
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +28,7 @@ STATIC_ROOT = os.path.join(
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
 'ms4-rguest.herokuapp.com'
@@ -147,11 +145,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
 
 # Stripe Settings
 STRIPE_LIVE_SECRET_KEY = os.environ.get("STRIPE_LIVE_SECRET_KEY", os.environ.get('STRIPE_LIVE_SECRET_KEY'))
