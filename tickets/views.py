@@ -39,7 +39,8 @@ def dashboard(request):
         return redirect('/dashboard/admin')
 
     company = Client.objects.filter(user=request.user).first()
-    return render(request,'tickets/dashboard.html', {'company':company})
+    total_hours = company.paid_extra_hours + company.contracted_monthly_SEM_hours + company.contracted_monthly_service_hours - company.hours_used_this_month
+    return render(request,'tickets/dashboard.html', {'company':company, 'hours': total_hours})
 
 def dashboard_admin(request):
     if not request.user.is_authenticated:
@@ -120,7 +121,16 @@ def account_edit(request):
         return redirect('/')
 
     company = Client.objects.filter(user=request.user).first()
-    form = AccountUpdateForm()
+    if request.method == 'POST':
+        form = AccountUpdateForm(request.POST)
+        if form.is_valid():
+            company.client_name = request.POST['company_name']
+            company.client_address = request.POST['address']
+            company.client_registered_company_number = request.POST['company_registration_number']
+            company.client_email = request.POST['company_email']
+            company.save()
+            return redirect('/account')
+    form = AccountUpdateForm({'company_name': company.client_name,'address': company.client_address,'company_registration_number': company.client_registered_company_number,'company_email': company.client_email,})
     return render(request,'tickets/account/edit.html', {'company': company, 'form': form})
 
 def passwordupdate(request):
@@ -138,12 +148,16 @@ def passwordupdate(request):
                 pass
     return render(request,'tickets/account/passwordupdate.html', {'company':company})
 
-def notificationsettings(request):
+def delete(request):
     if not request.user.is_authenticated:
         return redirect('/')
 
     company = Client.objects.filter(user=request.user).first()
-    return render(request,'tickets/account/notificationsettings.html', {'company':company})
+    company.delete()
+    return redirect('/deleted')
+
+def deleted(request):
+    return render(request,'tickets/deleted.html', {})
 
 def privacy(request):
     return render(request,'tickets/privacy.html', {})
@@ -341,7 +355,11 @@ def stripe_webhook(request):
 
     # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
-        print("Payment was successful.")
-        # TODO: run some custom code here
+        session = event['data']['object']
+        hoursbought = session.amount_total / 10000
+        customer_email = session["customer_details"]["email"]
+        customer = Client.objects.filter(client_email = customer_email).first()
+        customer.paid_extra_hours += hoursbought
+        customer.save()
 
     return HttpResponse(status=200)

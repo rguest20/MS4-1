@@ -18,10 +18,10 @@ Dashboard
           <div class="top_section">
             <h2>Welcome {{ company }}</h2>
             <div class="information">
-              <p>Contract Information</p>
-              <p>Hours paid for</p>
-              <p>Hours Used</p>
-              <p>Hours Remaining</p>
+              <h3>Contract Information:</h3>
+              <p>Hours paid for: {{ company.paid_extra_hours }}</p>
+              <p>Hours Used: {{ company.hours_used_this_month }}</p>
+              <p>Hours Remaining: {{ hours }}</p>
             </div>
           </div>
           <div class="bottom_section">

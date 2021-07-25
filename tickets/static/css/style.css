@@ -157,6 +157,27 @@ div.account .account-section .bottom {
 }
 div.account .account-section .bottom .left {
   background-color: white;
+  padding: 50px;
+  border-radius: 6px;
+  position: relative;
+}
+div.account .account-section .bottom .left .profileinfo .profileline {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+div.account .account-section .bottom .left a {
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+  background-color: #6e6e6e;
+  padding: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+div.account .account-section .bottom .left a:hover {
+  background-color: #e6e6e6;
+  color: black;
 }
 div.account .account-section .bottom .right {
   display: grid;
@@ -190,6 +211,10 @@ div.account .account-section .bottom .right .cta a {
   background-color: white;
   padding: 20px;
   width: 80%;
+}
+div.account .account-section .bottom .right .cta a:hover {
+  color: white;
+  background-color: #6e6e6e;
 }
 div.support .support-section {
   background-color: #ececec;

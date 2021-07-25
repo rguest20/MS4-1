@@ -21,12 +21,6 @@ Your Account
                 <h2>Your Profile</h2>
                 <p>This area allows you to keep your details up to date so if we need to contact you, we can do.  This will also be used for website builds to allow us to enter your information accurately</p>
               </div>
-              <div class="right">
-                <div class="image">
-                  <img src="" alt="">
-                  <p>Edit Profile Image</p>
-                </div>
-              </div>
             </div>
             <div class="bottom">
               <div class="left">
@@ -41,7 +35,9 @@ Your Account
                   </div>
                   <div class="profileline">
                     <p>Company Address:</p>
-                    <p>{{ company.client_address }}</p>
+                    <div class="">
+                      {{ company.client_address|safe }}
+                    </div>
                   </div>
                   <div class="profileline">
                     <p>Registered Company Number:</p>
@@ -64,9 +60,9 @@ Your Account
                   <a href="password">Change Password</a>
                 </div>
                 <div class="cta notifications">
-                  <h4>Your Notifications</h4>
-                  <p>Update your notification settings</p>
-                  <a href="notification">Notification Settings</a>
+                  <h4>Delete Account</h4>
+                  <p>Remove your account from our portal.  This is a permanent action and will require us to recreate you an account to undo.</p>
+                  <a href="delete">DELETE</a>
                 </div>
               </div>
             </div>

@@ -10,7 +10,7 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('account/', views.account, name='account'),
     path('account/edit', views.account_edit, name='account'),
-    path('account/notification', views.notificationsettings, name='notification'),
+    path('account/delete', views.delete, name='delete'),
     path('copyright/', views.copyright, name='copyright'),
     path('terms/', views.terms, name='terms'),
     path('report/', views.report, name='report'),
@@ -26,6 +26,7 @@ urlpatterns = [
     path('account/password/done', auth_views.PasswordChangeDoneView.as_view()),
     path('tinymce/', include('tinymce.urls')),
     path("stripe/", include("djstripe.urls", namespace="djstripe")),
+    path("webhook/", views.stripe_webhook, name="webhook"),
     path('dashboard/admin', views.dashboard_admin, name='dashboard-admin'),
     path('dashboard/admin/log/', views.admin_log, name='admin-log'),
     path('dashboard/admin/companies/', views.admin_companies, name='admin-companies'),
@@ -35,5 +36,5 @@ urlpatterns = [
     path('create-checkout-session/', views.create_checkout_session),
     path('cancelled/', views.cancelled, name='cancelled'),
     path('success/', views.success, name='success'),
-
+    path('deleted/', views.deleted, name='deleted'),
 ]
