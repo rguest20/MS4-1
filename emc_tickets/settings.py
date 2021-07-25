@@ -31,7 +31,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
 'ms4-rguest.herokuapp.com'
@@ -92,23 +92,14 @@ WSGI_APPLICATION = 'emc_tickets.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': os.environ.get('POSTGRES_DB_NAME'),
-
-        'USER': os.environ.get('POSTGRES_DB_USERNAME'),
-
-        'PASSWORD': os.environ.get('POSTGRES_DB_PASSWORD'),
-
-        'HOST': os.environ.get('POSTGRES_DB_HOST'),
-
-        'PORT': os.environ.get('POSTGRES_DB_PORT'),
-
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'sqlite3.db',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
-
 }
 
 
