@@ -1,0 +1,5 @@
+django
+datetime
+dnspython
+python-dotenv
+gunicorn
