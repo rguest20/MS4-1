@@ -303,7 +303,7 @@ def stripe_config(request):
 def create_checkout_session(request):
     if request.method == 'POST':
         dict = request.POST.get('quantity', 1)
-        domain_url = 'http://localhost:8000/'
+        domain_url = 'https://ms4-rguest.herokuapp.com/'
         stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
         productprice = stripe.Price.retrieve(
             "price_1JH3fEDXIY8lmqgTKTREcxUO",

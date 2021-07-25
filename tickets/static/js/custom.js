@@ -68,7 +68,7 @@ function refresh() {
 }
 
 function setupStripe() {
-  fetch("http://localhost:8000/config")
+  fetch("https://ms4-rguest.herokuapp.com/config")
   .then((result) => { return result.json(); })
   .then((data) => {
     // Initialize Stripe.js
