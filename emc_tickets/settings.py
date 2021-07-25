@@ -15,10 +15,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    ]
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_DIR = BASE_DIR / 'static'
+
+# Extra places for collectstatic to find static files.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +31,7 @@ STATICFILES_DIRS = [
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
 'ms4-rguest.herokuapp.com'
@@ -58,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -146,7 +149,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
