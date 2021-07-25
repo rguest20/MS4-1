@@ -14,6 +14,13 @@
   justify-self: center;
   text-align: center;
 }
+.login-wrap .login-popup-wrap img {
+  max-width: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 @media only screen and (max-width: 600px) {
   .login-wrap .login-popup-wrap {
     padding: 10px 10px;
