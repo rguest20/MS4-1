@@ -7,3 +7,4 @@ django-tinymce
 django-jsonify
 django-hCaptcha
 dj-stripe
+psycopg2
