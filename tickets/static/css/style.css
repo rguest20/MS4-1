@@ -107,6 +107,42 @@
   color: white;
   background-color: #6e6e6e;
 }
+.main_content.admin-dashboard {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-gap: 20px;
+  padding-right: 250px;
+}
+.main_content.admin-dashboard .top_section {
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+.main_content.admin-dashboard .bottom_section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+.main_content.admin-dashboard .bottom_section div {
+  background-color: #aaaaaa;
+  border-radius: 10px;
+  height: 300px;
+  padding: 20px;
+  position: relative;
+}
+.main_content.admin-dashboard .bottom_section div a {
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #e6e6e6;
+  padding: 20px;
+  position: absolute;
+  bottom: 20px;
+  color: black;
+}
+.main_content.admin-dashboard .bottom_section div a:hover {
+  color: white;
+  background-color: #6e6e6e;
+}
 .head_section .head-title {
   border-left: 1px solid black;
   padding-left: 20px;
@@ -649,6 +685,38 @@ div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket:first-chil
 }
 div.admin-tickets-multi .admin-tickets-multi_section .tickets .ticket:last-child {
   border-radius: 0 0 6px 6px;
+}
+div.buy .buy-section {
+  background-color: #e6e6e6;
+  padding: 50px;
+  border-radius: 6px 0 0 0;
+}
+div.buy .buy-section label {
+  display: block;
+}
+div.buy .buy-section input {
+  height: 52px;
+  width: 300px;
+  margin-top: 20px;
+}
+div.buy .buy-section p {
+  border-top: 1px solid black;
+  width: 300px;
+  padding-top: 10px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+div.buy .buy-section button {
+  width: 200px;
+  height: 52px;
+  background-color: white;
+  border: none;
+  text-transform: uppercase;
+}
+div.buy .buy-section button:hover {
+  background-color: #6e6e6e;
+  color: white;
+  cursor: pointer;
 }
 html {
   background: white;

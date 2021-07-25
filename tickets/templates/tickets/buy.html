@@ -11,15 +11,15 @@ Buy More Hours
       <a href="/support">Support</a>
       <a href="/account">Account</a>
     </div>
-    <div class="main_content notifications">
+    <div class="main_content buy">
       <div class="head_section">
         <h1 class='head-title'>Buy More Hours - {{ company }}</h1>
       </div>
-      <div class="notification-section">
-        <label for="hourstobuy">How many hours would you like to buy</label>
+      <div class="buy-section">
+        <label for="hourstobuy">How many hours would you like to buy: </label>
         <input id ='hours' type="number" name="hourstobuy" value="" onchange="updatePrice()">
-        <button id='buyButton' type="submit" name="button">Buy</button>
         <p>Price: £<span id='price'>0</span></p>
+        <button id='buyButton' type="submit" name="button">Buy</button>
       </div>
     </div>
   </div>

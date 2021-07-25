@@ -56,7 +56,7 @@ function companyLookup() {
   document.querySelector('#tickets-raised').append(ticketoutput.length);
   document.querySelector('#outstanding-tickets').append(ticketoutputoutstanding.length);
   document.querySelector('#hours-worked').append(thisclient.fields.hours_used_this_month);
-  document.querySelector('#hours-remaining').append(thisclient.fields.contracted_monthly_SEM_hours + thisclient.fields.contracted_monthly_service_hours - thisclient.fields.hours_used_this_month);
+  document.querySelector('#hours-remaining').append(thisclient.fields.extra_hours_purchased + thisclient.fields.contracted_monthly_SEM_hours + thisclient.fields.contracted_monthly_service_hours - thisclient.fields.hours_used_this_month);
   document.querySelector('.hidden').classList.remove('hidden');
   document.querySelector('.enter-company').classList.add('hidden');
 }
@@ -72,18 +72,10 @@ function setupStripe() {
     // Initialize Stripe.js
     stripe = Stripe(data.publicKey);
   });
-  document.querySelector("#buyButton").addEventListener("click", () => {
-    // Get Checkout Session ID
-    fetch("/create-checkout-session/").then(result => {
-      return result.json();
-    }).then(data => {
-      console.log(data); // Redirect to Stripe Checkout
+}
 
-      return stripe.redirectToCheckout({
-        sessionId: data.sessionId
-      });
-    }).then(res => {
-      console.log(res);
-    });
-  });
+function updatePrice() {
+  hours = document.querySelector('#hours').value;
+  target = document.querySelector('#price');
+  target.innerHTML = hours * 100;
 }
