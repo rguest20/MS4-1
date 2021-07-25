@@ -55,8 +55,9 @@ function companyLookup() {
   document.querySelector('#contract').append(thisclient.fields.contracted_monthly_SEM_hours + thisclient.fields.contracted_monthly_service_hours);
   document.querySelector('#tickets-raised').append(ticketoutput.length);
   document.querySelector('#outstanding-tickets').append(ticketoutputoutstanding.length);
+  document.querySelector('#paid_extra_hours').append(thisclient.fields.paid_extra_hours);
   document.querySelector('#hours-worked').append(thisclient.fields.hours_used_this_month);
-  document.querySelector('#hours-remaining').append(thisclient.fields.extra_hours_purchased + thisclient.fields.contracted_monthly_SEM_hours + thisclient.fields.contracted_monthly_service_hours - thisclient.fields.hours_used_this_month);
+  document.querySelector('#hours-remaining').append(thisclient.fields.paid_extra_hours + thisclient.fields.contracted_monthly_SEM_hours + thisclient.fields.contracted_monthly_service_hours - thisclient.fields.hours_used_this_month);
   document.querySelector('.hidden').classList.remove('hidden');
   document.querySelector('.enter-company').classList.add('hidden');
 }
