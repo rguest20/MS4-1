@@ -17,10 +17,8 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_DIR = BASE_DIR / 'static'
-STATICFILES_DIRS = [
- os.path.join(BASE_DIR, 'static')
- ]
+STATIC_DIR = BASE_DIR / 'tickets/static'
+
 # Extra places for collectstatic to find static files.
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

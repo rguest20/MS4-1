@@ -1,0 +1,113 @@
+div.report {
+  .report-section {
+    background-color: #ececec;
+    border-radius: 6px 0 0 0;
+    padding: 60px;
+    .back {
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .hero {
+      background-color: #6e6e6e;
+      border-radius: 6px;
+      padding: 22px 50px;
+      color: white;
+      position: relative;
+      .buttons {
+        position: absolute;
+        right:50px;
+        bottom:22px;
+        a {
+          display: inline-block;
+          color: black;
+          text-decoration: none;
+          text-transform: uppercase;
+          div {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: white;
+            &:hover {
+              background-color: #e6e6e6;
+            }
+          }
+        }
+      }
+    }
+    .ticket-form {
+      form {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 9fr;
+        grid-gap: 20px;
+        label {
+          display: flex;
+          align-items: center;
+          &:nth-child(8) {
+            align-items: flex-start;
+            padding-top: 40px;
+          }
+        }
+        input[type=text] {
+          width: 50%;
+          height: 48px;
+        }
+        select {
+          width: 51%;
+          height: 51px;
+        }
+        .tox {
+          border: 1px solid rgb(118,118,118);
+        }
+        .buttons {
+          grid-column: span 2;
+          button {
+            width:256px;
+            height: 56px;
+            background-color: #6e6e6e;
+            border: none;
+            color: white;
+            &:hover {
+              background-color: white;
+              color: black;
+            }
+          }
+          a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+  .comments-section {
+    margin-top: 20px;
+    background-color: #e6e6e6;
+    padding: 60px;
+    position: relative;
+    h3 {
+      margin-top: 0;
+    }
+    .buttons {
+      position: absolute;
+      right: 60px;
+      top: 40px;
+
+      button {
+        background-color: white;
+        cursor: pointer;
+        border: none;
+        padding: 22px;
+        &:hover {
+          background-color: #6e6e6e;
+          color: white;
+        }
+      }
+    }
+  }
+}

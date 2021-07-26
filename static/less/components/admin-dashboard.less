@@ -1,0 +1,37 @@
+.main_content.admin-dashboard {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-gap: 20px;
+  padding-right: 250px;
+  .top_section{
+    padding: 20px;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+  }
+  .bottom_section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+
+    div{
+      background-color:#aaaaaa;
+      border-radius: 10px;
+      height: 300px;
+      padding: 20px;
+      position: relative;
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        background-color: #e6e6e6;
+        padding: 20px;
+        position: absolute;
+        bottom: 20px;
+        color: black;
+        &:hover {
+          color: white;
+          background-color: #6e6e6e;
+        }
+      }
+    }
+  }
+}

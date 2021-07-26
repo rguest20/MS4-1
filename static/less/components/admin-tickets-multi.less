@@ -1,0 +1,44 @@
+div.admin-tickets-multi {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  .admin-tickets-multi_section {
+    background-color: #e6e6e6;
+    padding: 50px;
+    border-radius: 6px 0 0 0;
+    margin-bottom: 20px;
+    .hero {
+      background-color: #6e6e6e;
+      color: white;
+      padding: 20px;
+      border-radius: 6px;
+    }
+    .tickets {
+      margin: 20px 0;
+      border-radius: 6px;
+      .ticket {
+        padding: 20px;
+        background-color: #6e6e6e;
+        color: white;
+        &:nth-child(2n) {
+          background-color: #3a3a3a;
+        }
+        a{
+          text-decoration: none;
+          text-transform: uppercase;
+          color: white;
+          font-weight: bold;
+          &:hover {
+            color: #e6e6e6;
+          }
+        }
+        &:first-child{
+          border-radius: 6px 6px 0 0;
+        }
+        &:last-child {
+          border-radius: 0 0 6px 6px;
+        }
+      }
+    }
+  }
+}

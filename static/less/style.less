@@ -1,0 +1,61 @@
+@import 'components/title';
+@import 'components/sidebar';
+@import 'components/dashboard';
+@import 'components/admin-dashboard';
+@import 'components/top_bar';
+@import 'components/profile';
+@import 'components/support';
+@import 'components/report';
+@import 'components/log';
+@import 'components/companies';
+@import 'components/password';
+@import 'components/admin-tickets';
+@import 'components/admin-tickets-multi';
+@import 'components/buy';
+@import 'components/account-update';
+
+
+@import 'options/_fonts';
+@import 'options/_colors';
+
+html {
+  background: white;
+  font-family: 'neuzeit-grotesk';
+}
+.main-wrap {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+.logout{
+  position: absolute;
+  top:20px;
+  right: 20px;
+  padding: 30px;
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    &:hover{
+      color: #6e6e6e;
+    }
+  }
+}
+
+.sidebar {
+  img {
+    max-width: 230px;
+  }
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    &:hover{
+      color: #6e6e6e; 
+    }
+  }
+}
+
+.errorlist {
+  color: red;
+  list-style-type: none;
+}
