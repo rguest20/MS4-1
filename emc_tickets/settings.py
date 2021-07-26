@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
+import dj_database_url
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,6 +36,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
+'localhost',
 'ms4-rguest.herokuapp.com'
 ]
 
@@ -90,21 +93,8 @@ WSGI_APPLICATION = 'emc_tickets.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-            'NAME': os.environ.get('POSTGRES_DB_NAME'),
-
-            'USER': os.environ.get('POSTGRES_DB_USERNAME'),
-
-            'PASSWORD': os.environ.get('POSTGRES_DB_PASSWORD'),
-
-            'HOST': os.environ.get('POSTGRES_DB_HOST'),
-
-            'PORT': os.environ.get('POSTGRES_DB_PORT'),
-    }
-}
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation

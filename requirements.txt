@@ -10,3 +10,4 @@ dj-stripe
 psycopg2
 whitenoise
 stripe
+dj-database-url
