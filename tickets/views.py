@@ -50,12 +50,13 @@ def dashboard_admin(request):
 
     tickets = Ticket.objects.filter(resolved = False).all()
     unresolved = Ticket.objects.filter(resolved = False).all()
+    weekold = []
     for ticket in tickets:
         d = ticket.date_created
         now = datetime.now(timezone.utc)
         if (d - now).days > 7:
-            tickets.remove(ticket)
-    return render(request,'tickets/admindashboard.html', {'unresolved': unresolved, 'weekold': tickets})
+            weekold.append(ticket)
+    return render(request,'tickets/admindashboard.html', {'unresolved': unresolved, 'weekold': weekold})
 
 def admin_tickets(request):
     if not request.user.is_authenticated:
