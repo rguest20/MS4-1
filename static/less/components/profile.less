@@ -3,9 +3,13 @@ div.account{
     border-radius: 30px 0 0 0;
     background-color: #ECECEC;
     padding:50px;
+    max-width: 90vw;
+    @media only screen and (max-width: 600px) {
+      padding: 10px;
+    }
     .top{
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 5fr 1fr;
       grid-gap: 20px;
       background-color: #6E6E6E;
       border-radius: 6px;
@@ -41,11 +45,17 @@ div.account{
       display: grid;
       grid-template-columns: 5fr 2fr;
       grid-gap: 20px;
+      @media only screen and (max-width: 1100px) {
+        grid-template-columns: 1fr;
+      }
       .left {
         .profileinfo {
           .profileline {
             display: grid;
             grid-template-columns: 1fr 3fr;
+            @media only screen and (max-width: 750px) {
+              grid-template-columns: 1fr;
+            }
           }
         }
         background-color: white;
@@ -64,6 +74,10 @@ div.account{
           &:hover {
             background-color: #e6e6e6;
             color: black;
+          }
+          @media only screen and (max-width: 880px) {
+            bottom:0;
+            right:0;
           }
         }
       }
