@@ -301,6 +301,12 @@ div.support .support-section {
   background-color: #ececec;
   border-radius: 6px 0 0 0;
   padding: 58px;
+  max-width: 90vw;
+}
+@media only screen and (max-width: 600px) {
+  div.support .support-section {
+    padding: 10px;
+  }
 }
 div.support .support-section .support-tab {
   margin-bottom: 30px;
@@ -313,6 +319,9 @@ div.support .support-section .support-tab a {
 }
 div.support .support-section .support-tab a:hover {
   color: #6e6e6e;
+}
+div.support .support-section .support-tab a:nth-child(2) {
+  display: none;
 }
 div.support .support-section .create-new {
   color: white;
@@ -341,6 +350,21 @@ div.support .support-section .create-new a .link {
 div.support .support-section .create-new a .link:hover {
   background-color: #ececec;
 }
+@media only screen and (max-width: 900px) {
+  div.support .support-section .create-new {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  div.support .support-section .create-new h2 {
+    display: block;
+  }
+  div.support .support-section .create-new a {
+    position: relative;
+    right: 0;
+  }
+}
 div.support .support-section .table {
   display: grid;
   grid-template-columns: 1fr;
@@ -348,6 +372,20 @@ div.support .support-section .table {
 div.support .support-section .table .row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+@media only screen and (max-width: 900px) {
+  div.support .support-section .table .row {
+    grid-template-columns: 1fr 1fr;
+  }
+  div.support .support-section .table .row p {
+    display: none;
+  }
+  div.support .support-section .table .row p:nth-child(7n-5) {
+    display: block;
+  }
+  div.support .support-section .table .row p:nth-child(7n) {
+    display: block;
+  }
 }
 div.report .report-section {
   background-color: #ececec;
@@ -379,6 +417,31 @@ div.report .report-section .hero .buttons {
   position: absolute;
   right: 50px;
   bottom: 22px;
+}
+@media only screen and (max-width: 1050px) {
+  div.report .report-section .hero .buttons {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  div.report .report-section .hero .buttons a {
+    margin: 10px;
+    white-space: nowrap;
+  }
+}
+@media only screen and (max-width: 384px) {
+  div.report .report-section .hero .buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 div.report .report-section .hero .buttons a {
   display: inline-block;
@@ -478,6 +541,12 @@ div.report .comments-section {
   background-color: #e6e6e6;
   padding: 60px;
   position: relative;
+  max-width: 90vw;
+}
+@media only screen and (max-width: 600px) {
+  div.report .comments-section {
+    padding: 10px;
+  }
 }
 div.report .comments-section h3 {
   margin-top: 0;
@@ -486,6 +555,12 @@ div.report .comments-section .buttons {
   position: absolute;
   right: 60px;
   top: 40px;
+}
+@media only screen and (max-width: 1050px) {
+  div.report .comments-section .buttons {
+    right: 10px;
+    top: 10px;
+  }
 }
 div.report .comments-section .buttons button {
   background-color: white;
@@ -861,7 +936,7 @@ html {
     top: 60px;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 525px) {
   .logout {
     max-width: 100vw;
     width: 100vw;
@@ -891,7 +966,7 @@ html {
     max-width: 130px;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 525px) {
   .sidebar {
     max-width: 100vw;
     width: 100vw;

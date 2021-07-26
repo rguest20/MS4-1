@@ -3,6 +3,10 @@ div.support {
     background-color: #ececec;
     border-radius: 6px 0 0 0;
     padding: 58px;
+    max-width: 90vw;
+    @media only screen and (max-width: 600px) {
+      padding: 10px;
+    }
     .support-tab {
       margin-bottom: 30px;
       a {
@@ -12,6 +16,9 @@ div.support {
         padding-right: 20px;
         &:hover {
           color: #6e6e6e;
+        }
+        &:nth-child(2) {
+          display: none;
         }
       }
     }
@@ -37,9 +44,17 @@ div.support {
           }
         }
       }
-    }
-    .search {
+      @media only screen and (max-width: 900px) {
+        flex-direction: column;
+        h2 {
+          display: block;
+        }
+        a {
+          position: relative;
+          right: 0;
 
+        }
+      }
     }
     .table {
       display: grid;
@@ -47,10 +62,19 @@ div.support {
       .row {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        @media only screen and (max-width: 900px) {
+          grid-template-columns: 1fr 1fr;
+          p {
+            display:none;
+          }
+          p:nth-child(7n-5) {
+            display: block;
+          }
+          p:nth-child(7n) {
+            display: block;
+          }
+        }
       }
-    }
-    .pagination {
-
     }
   }
 }
