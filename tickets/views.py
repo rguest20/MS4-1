@@ -7,7 +7,7 @@ from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from datetime import datetime
+from datetime import datetime, timezone
 import stripe
 import json
 
@@ -48,11 +48,11 @@ def dashboard_admin(request):
     if not request.user.is_staff:
         return redirect('/')
 
-    tickets = Ticket.objects.all()
+    tickets = Ticket.objects.filter(resolved = False).all()
     unresolved = Ticket.objects.filter(resolved = False).all()
     for ticket in tickets:
-        d = ticket.date_created # Add .date() if hour doesn't matter
-        now = datetime.now()                 # Add .date() if hour doesn't matter
+        d = ticket.date_created
+        now = datetime.now(timezone.utc)
         if (d - now).days > 7:
             tickets.remove(ticket)
     return render(request,'tickets/admindashboard.html', {'unresolved': unresolved, 'weekold': tickets})
