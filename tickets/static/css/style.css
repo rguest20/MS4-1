@@ -765,6 +765,12 @@ div.buy .buy-section {
   background-color: #e6e6e6;
   padding: 50px;
   border-radius: 6px 0 0 0;
+  max-width: 90vw;
+}
+@media only screen and (max-width: 600px) {
+  div.buy .buy-section {
+    padding: 10px;
+  }
 }
 div.buy .buy-section label {
   display: block;
@@ -865,6 +871,8 @@ html {
   }
 }
 .sidebar img {
+  position: relative;
+  top: 15px;
   max-width: 230px;
 }
 .sidebar a {
