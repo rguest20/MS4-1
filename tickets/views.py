@@ -48,7 +48,14 @@ def dashboard_admin(request):
     if not request.user.is_staff:
         return redirect('/')
 
-    return render(request,'tickets/admindashboard.html', {})
+    tickets = Ticket.objects.all()
+    unresolved = Ticket.objects.filter(resolved = False).all()
+    for ticket in tickets:
+        d = ticket.date_created # Add .date() if hour doesn't matter
+        now = datetime.now()                 # Add .date() if hour doesn't matter
+        if (d - now).days > 7:
+            tickets.remove(ticket)
+    return render(request,'tickets/admindashboard.html', {'unresolved': unresolved, 'weekold': tickets})
 
 def admin_tickets(request):
     if not request.user.is_authenticated:
