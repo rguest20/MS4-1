@@ -26,5 +26,9 @@ class CommentForm(forms.Form):
 class AccountUpdateForm(forms.Form):
     company_name = forms.CharField()
     address = forms.CharField(widget=TinyMCE(attrs={'cols': 10, 'rows': 8}), required = False)
-    company_registration_number = forms.CharField() 
+    company_registration_number = forms.CharField()
     company_email = forms.EmailField()
+
+class CreateNewUser(forms.Form):
+    username = forms.CharField(max_length = 20)
+    password = forms.CharField(max_length=20, widget=forms.PasswordInput())

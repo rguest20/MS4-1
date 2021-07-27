@@ -32,6 +32,8 @@ urlpatterns = [
     path('dashboard/admin', views.dashboard_admin, name='dashboard-admin'),
     path('dashboard/admin/log/', views.admin_log, name='admin-log'),
     path('dashboard/admin/companies/', views.admin_companies, name='admin-companies'),
+    path('dashboard/admin/companies/create_user/', views.admin_create_user, name='admin-create-user'),
+    path('dashboard/admin/companies/create_company/', views.admin_create_company, name='admin-create-company'),
     path('dashboard/admin/tickets/', views.admin_tickets, name='admin-tickets'),
     path('dashboard/admin/tickets/<int:number>', views.admin_tickets_single, name='admin-tickets-single'),
     path('config/', views.stripe_config),

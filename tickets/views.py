@@ -7,9 +7,11 @@ from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import make_password
 from datetime import datetime, timezone
 import stripe
 import json
+from django.contrib.auth import get_user_model 
 
 
 def index(request):
@@ -94,7 +96,15 @@ def admin_companies(request):
     companies = Client.objects.all()
     tickets = Ticket.objects.all()
     contracts = Contract.objects.all()
-    return render(request,'tickets/admin/companies.html', {'tickets':tickets, 'companies': companies})
+    User = get_user_model()
+    users = User.objects.all()
+    userstoremove = []
+    for company in companies:
+        if company.user in users:
+            userstoremove.append(company.user.username)
+            finalusers = User.objects.all().exclude(username__in = userstoremove)
+    form = CreateNewUser()
+    return render(request,'tickets/admin/companies.html', {'tickets':tickets, 'companies': companies, 'users': finalusers, 'form': form})
 
 def admin_log(request):
     if not request.user.is_authenticated:
@@ -114,6 +124,50 @@ def admin_log(request):
         ticketclient.save()
         return redirect('/dashboard/admin')
     return render(request,'tickets/admin/log.html', {'tickets':tickets, 'companies': companies})
+
+def admin_create_user(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    if not request.user.is_staff:
+        return redirect('/')
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        safepassword = make_password(password)
+        User = get_user_model()
+        newuser = User()
+        newuser.username = username
+        newuser.password = safepassword
+        newuser.save()
+        return render(request, 'tickets/admin/usercreated.html', {'newuser': newuser})
+    else:
+        return redirect('/')
+
+def admin_create_company(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    if not request.user.is_staff:
+        return redirect('/')
+
+    if request.method == 'POST':
+        companyname = request.POST['companycreate']
+        username = request.POST['companyassociate']
+        User = get_user_model()
+        user = User.objects.filter(username = username).first()
+        contract = Contract.objects.first()
+        newclient = Client()
+        newclient.client_name = companyname
+        newclient.user = user
+        newclient.email = user.email
+        newclient.live_client = True
+        newclient.date_registered = datetime.now()
+        newclient.contract_type = contract
+        newclient.contract_start_date = datetime.now()
+        newclient.save()
+        return render(request, 'tickets/admin/companycreated.html', {'newcompany': newclient})
+    else:
+        return redirect('/')
 
 def account(request):
 
