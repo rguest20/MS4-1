@@ -132,19 +132,35 @@
 }
 .main_content.admin-dashboard {
   display: grid;
-  grid-template-rows: 100px 1fr 1fr;
+  grid-template-rows: 100px auto auto;
   grid-gap: 20px;
-  padding-right: 250px;
+  padding-right: 150px;
+}
+@media only screen and (max-width: 1200px) {
+  .main_content.admin-dashboard {
+    padding-right: 0px;
+  }
 }
 .main_content.admin-dashboard .top_section {
   padding: 20px;
   background-color: #f6f6f6;
   border-radius: 10px;
+  max-width: 90vw;
+}
+@media only screen and (max-width: 600px) {
+  .main_content.admin-dashboard .top_section {
+    padding: 10px;
+  }
 }
 .main_content.admin-dashboard .bottom_section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+}
+@media only screen and (max-width: 1050px) {
+  .main_content.admin-dashboard .bottom_section {
+    grid-template-columns: 1fr;
+  }
 }
 .main_content.admin-dashboard .bottom_section div {
   background-color: #aaaaaa;
@@ -556,7 +572,7 @@ div.report .comments-section .buttons {
   right: 60px;
   top: 40px;
 }
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 525px) {
   div.report .comments-section .buttons {
     right: 10px;
     top: 10px;
@@ -577,6 +593,12 @@ div.report .comments-section .buttons button:hover {
   grid-template-rows: 100px 1fr 1fr;
   grid-gap: 20px;
   padding-right: 250px;
+  max-width: 90vw;
+}
+@media only screen and (max-width: 600px) {
+  .main_content.admin-log {
+    padding: 10px;
+  }
 }
 .main_content.admin-log .admin-log_section {
   padding: 20px;
@@ -584,11 +606,11 @@ div.report .comments-section .buttons button:hover {
   border-radius: 10px;
 }
 .main_content.admin-log .admin-log_section .enter-company div input {
-  width: 30%;
+  width: 300px;
   height: 52px;
 }
 .main_content.admin-log .admin-log_section .enter-company div select {
-  width: 31%;
+  width: 300px;
   height: 52px;
 }
 .main_content.admin-log .admin-log_section .enter-company div label {
@@ -597,7 +619,7 @@ div.report .comments-section .buttons button:hover {
 }
 .main_content.admin-log .admin-log_section .enter-company div button {
   margin-top: 20px;
-  width: 20%;
+  width: 200px;
   height: 50px;
   background: white;
   border: none;
@@ -615,11 +637,11 @@ div.report .comments-section .buttons button:hover {
   padding: 20px;
 }
 .main_content.admin-log .bottom_section div input {
-  width: 30%;
+  width: 300px;
   height: 52px;
 }
 .main_content.admin-log .bottom_section div select {
-  width: 31%;
+  width: 300px;
   height: 52px;
 }
 .main_content.admin-log .bottom_section div label {
@@ -628,7 +650,7 @@ div.report .comments-section .buttons button:hover {
 }
 .main_content.admin-log .bottom_section div button {
   margin-top: 20px;
-  width: 20%;
+  width: 200px;
   height: 50px;
   background: white;
   border: none;
@@ -643,58 +665,111 @@ div.report .comments-section .buttons button:hover {
   display: grid;
   grid-template-rows: 100px 1fr 1fr;
   grid-gap: 20px;
-  padding-right: 250px;
+  max-width: 90vw;
+}
+@media only screen and (max-width: 600px) {
+  .main_content.admin-companies {
+    padding: 10px;
+  }
+}
+.main_content.admin-companies .head_section .head-title {
+  width: 50vw;
+}
+@media only screen and (max-width: 525px) {
+  .main_content.admin-companies .head_section .head-title {
+    width: 100%;
+    position: relative;
+    bottom: 50px;
+  }
 }
 .main_content.admin-companies .admin-companies_section {
   padding: 20px;
   background-color: #f6f6f6;
   border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
 }
-.main_content.admin-companies .admin-companies_section .enter-company div input {
+.main_content.admin-companies .admin-companies_section .lookup .enter-company div input {
   width: 30%;
   height: 52px;
 }
-.main_content.admin-companies .admin-companies_section .enter-company div select {
-  width: 31%;
+.main_content.admin-companies .admin-companies_section .lookup .enter-company div select {
+  width: 51%;
   height: 52px;
 }
-.main_content.admin-companies .admin-companies_section .enter-company div label {
+.main_content.admin-companies .admin-companies_section .lookup .enter-company div label {
   margin: 20px 0;
   display: block;
 }
-.main_content.admin-companies .admin-companies_section .enter-company div button {
+.main_content.admin-companies .admin-companies_section .lookup .enter-company div button {
   margin-top: 20px;
   width: 20%;
   height: 50px;
   background: white;
   border: none;
 }
-.main_content.admin-companies .admin-companies_section .enter-company div button:hover {
+.main_content.admin-companies .admin-companies_section .lookup .enter-company div button:hover {
   background: #e6e6e6;
 }
-.main_content.admin-companies .admin-companies_section .hidden {
+@media only screen and (max-width: 1020px) {
+  .main_content.admin-companies .admin-companies_section .lookup .enter-company div select {
+    width: 80%;
+  }
+}
+.main_content.admin-companies .admin-companies_section .lookup .hidden {
   display: none;
+}
+.main_content.admin-companies .admin-companies_section .create form input {
+  width: 80%;
+  height: 52px;
+}
+.main_content.admin-companies .admin-companies_section .create form select {
+  width: 51%;
+  height: 52px;
+}
+.main_content.admin-companies .admin-companies_section .create form label {
+  margin: 20px 0;
+  display: block;
+}
+.main_content.admin-companies .admin-companies_section .create form button {
+  margin-top: 20px;
+  width: 200px;
+  height: 50px;
+  background: white;
+  border: none;
+}
+.main_content.admin-companies .admin-companies_section .create form button:hover {
+  background: #e6e6e6;
+}
+@media only screen and (max-width: 1020px) {
+  .main_content.admin-companies .admin-companies_section {
+    grid-template-columns: 1fr;
+  }
 }
 .main_content.admin-companies .bottom_section div {
   background-color: #aaaaaa;
   border-radius: 10px;
   padding: 20px;
 }
-.main_content.admin-companies .bottom_section div input {
-  width: 30%;
-  height: 52px;
+.main_content.admin-companies .bottom_section div .details {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
-.main_content.admin-companies .bottom_section div select {
-  width: 31%;
-  height: 52px;
+@media only screen and (max-width: 1020px) {
+  .main_content.admin-companies .bottom_section div .details {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-.main_content.admin-companies .bottom_section div label {
-  margin: 20px 0;
-  display: block;
+@media only screen and (max-width: 525px) {
+  .main_content.admin-companies .bottom_section div .details {
+    grid-template-columns: 1fr;
+  }
 }
 .main_content.admin-companies .bottom_section div button {
   margin-top: 20px;
-  width: 20%;
+  width: 200px;
   height: 50px;
   background: white;
   border: none;
