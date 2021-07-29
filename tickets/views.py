@@ -34,27 +34,26 @@ def index(request):
         form = LoginForm()
         return render(request,'tickets/index.html', {'form': form})
 
-def register
+def register(request):
     if request.user.is_authenticated:
         return redirect('dashboard/')
-        if request.method == 'POST':
-            form = RegistrationForm(request.POST)
-            if form.is_valid():
-                User = get_user_model
-                user = new User()
-                user.username = request.POST['username']
-                user.password = make_password(request.POST['password'])
-                user = authenticate(request, username=username, password=password)
-                if user is not None:
-                    login(request, user)
-                    return HttpResponseRedirect('dashboard/')
-                else:
-                    messages.error(request, 'Error, please try again')
-                    form = RegistrationForm()
-                    return render(request,'tickets/index.html', {'form': form})
-        else:
-            form = RegistrationForm()
-            return render(request,'tickets/register.html', {'form': form})
+
+    if request.method == 'POST':
+        form = CreateNewUser(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        safepassword = make_password(password)
+        User = get_user_model()
+        newuser = User()
+        newuser.username = username
+        newuser.password = safepassword
+        newuser.save()
+        login(request, newuser)
+        return redirect('/')
+
+    else:
+        form = CreateNewUser()
+        return render(request,'tickets/register.html', {'form': form})
 
 def dashboard(request):
     if not request.user.is_authenticated:
@@ -65,7 +64,7 @@ def dashboard(request):
         company = Client.objects.filter(user=request.user).first()
         total_hours = company.paid_extra_hours + company.contracted_monthly_SEM_hours + company.contracted_monthly_service_hours - company.hours_used_this_month
     except:
-        message.error(request, 'This functionality will not work until you have been assigned to a company.  Please wait.')
+        messages.error(request, 'This functionality will not work until you have been assigned to a company.  Please wait, our admins will assign you soon.')
         return redirect('/logout')
     return render(request,'tickets/dashboard.html', {'company':company, 'hours': total_hours})
 
@@ -380,73 +379,3 @@ def buy(request):
 def logout_view(request):
         logout(request)
         return redirect('/')
-
-def stripe_config(request):
-    if request.method == 'GET':
-        stripe_config = {'publicKey': settings.STRIPE_PUBLISHABLE_KEY}
-        return JsonResponse(stripe_config, safe=False)
-
-@csrf_exempt
-def create_checkout_session(request):
-    if request.method == 'POST':
-        dict = request.POST.get('quantity', 1)
-        domain_url = 'https://ms4-rguest.herokuapp.com/'
-        stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
-        productprice = stripe.Price.retrieve(
-            "price_1JH3fEDXIY8lmqgTKTREcxUO",
-        )
-        try:
-            # Other optional params include:
-            # [billing_address_collection] - to display billing address details on the page
-            # [customer] - if you have an existing Stripe Customer ID
-            # [payment_intent_data] - capture the payment later
-            # [customer_email] - prefill the email input in the form
-            # For full details see https://stripe.com/docs/api/checkout/sessions/create
-
-            # ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
-            checkout_session = stripe.checkout.Session.create(
-                success_url=domain_url + 'success?session_id={CHECKOUT_SESSION_ID}',
-                cancel_url=domain_url + 'cancelled/',
-                payment_method_types=['card'],
-                mode='payment',
-                line_items=[{'quantity': dict, 'price_data': {'currency': 'GBP', 'product': 'prod_JutS7RlYuaxtDj', 'unit_amount': productprice.unit_amount}}]
-            )
-            return JsonResponse({'sessionId': checkout_session['id']})
-        except Exception as e:
-            return JsonResponse({'error': str(e)})
-
-def cancelled(request):
-    return render(request,'tickets/stripe/cancelled.html', {})
-
-def success(request):
-    return render(request,'tickets/stripe/success.html', {})
-
-@csrf_exempt
-def stripe_webhook(request):
-    stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
-    endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
-    payload = request.body
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
-    event = None
-
-    try:
-        event = stripe.Webhook.construct_event(
-            payload, sig_header, endpoint_secret
-        )
-    except ValueError as e:
-        # Invalid payload
-        return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
-        return HttpResponse(status=400)
-
-    # Handle the checkout.session.completed event
-    if event['type'] == 'checkout.session.completed':
-        session = event['data']['object']
-        hoursbought = session.amount_total / 10000
-        customer_email = session["customer_details"]["email"]
-        customer = Client.objects.filter(client_email = customer_email).first()
-        customer.paid_extra_hours += hoursbought
-        customer.save()
-
-    return HttpResponse(status=200)
