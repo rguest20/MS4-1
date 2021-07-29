@@ -368,14 +368,6 @@ def comment_post(request, number):
 def contact(request):
     return render(request,'tickets/contact.html', {})
 
-def buy(request):
-    if not request.user.is_authenticated:
-        return redirect('/')
-
-    company = Client.objects.filter(user=request.user).first()
-
-    return render(request,'tickets/buy.html', {'company':company})
-
 def logout_view(request):
         logout(request)
         return redirect('/')
