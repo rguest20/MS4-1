@@ -10,7 +10,9 @@ urlpatterns = [
     path('buy/', views.buy, name='buy'),
     path("stripe/", include("djstripe.urls", namespace="djstripe")),
     path("webhook/", views.stripe_webhook, name="webhook"),
+    path('config/', views.stripe_config),
+    path('cancelled/', views.cancelled, name='cancelled'),
     path('success/', views.success, name='success'),
-    path('deleted/', views.deleted, name='deleted'),
+    path('create-checkout-session/', views.create_checkout_session),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]

@@ -26,14 +26,18 @@ Buy More Hours
 </div>
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript">
-  var stripe
   window.onload = setupStripe()
   document.querySelector("#buyButton").addEventListener("click", () => {
+    var stripe
   // Get Checkout Session ID
+  fetch("/config/")
+  .then((result) => { return result.json(); })
+  .then((data) => {
+    stripe = Stripe(data.publicKey);
+  })
   fetch("/create-checkout-session/", {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: ('quantity=' + parseInt(document.querySelector('#hours').value))})
   .then((result) => { return result.json(); })
   .then((data) => {
-    console.log(data);
     // Redirect to Stripe Checkout
     return stripe.redirectToCheckout({sessionId: data.sessionId})
   })

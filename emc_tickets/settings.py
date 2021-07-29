@@ -45,7 +45,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'tickets.apps.TicketsConfig',
-    'purcahsing.apps.TicketsConfig',
+    'purchasing.apps.PurchasingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
