@@ -1,0 +1,125 @@
+.main_content.admin-companies {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-gap: 20px;
+  max-width: 90vw;
+  @media only screen and (max-width: 600px) {
+    padding: 10px;
+  }
+  .head_section {
+    .head-title {
+      width: 50vw;
+      @media only screen and (max-width: 525px) {
+        width: 100%;
+        position: relative;
+        bottom: 50px;
+      }
+    }
+  }
+  .admin-companies_section{
+    padding: 20px;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    .lookup{
+      .enter-company{
+        div{
+          input {
+            width:30%;
+            height: 52px;
+          }
+          select {
+            width: 51%;
+            height:52px;
+          }
+          label {
+            margin:20px 0;
+            display:block;
+          }
+          button {
+            margin-top: 20px;
+            width: 20%;
+            height:50px;
+            background: white;
+            border: none;
+            &:hover {
+              background: #e6e6e6;
+            }
+          }
+        }
+        @media only screen and (max-width: 1020px) {
+          div{
+            select {
+              width:80%;
+            }
+          }
+        }
+      }
+      .hidden {
+        display: none;
+      }
+    }
+    .create {
+      form{
+        input {
+          width:80%;
+          height: 52px;
+        }
+        select {
+          width: 51%;
+          height:52px;
+        }
+        label {
+          margin:20px 0;
+          display:block;
+        }
+        button {
+          margin-top: 20px;
+          width: 200px;
+          height:50px;
+          background: white;
+          border: none;
+          &:hover {
+            background: #e6e6e6;
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 1020px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  .bottom_section{
+    div{
+      .details {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+        @media only screen and (max-width: 1020px) {
+          grid-template-columns: 1fr 1fr;
+        }
+        @media only screen and (max-width: 525px) {
+          grid-template-columns: 1fr;
+        }
+      }
+      background-color:#aaaaaa;
+      border-radius: 10px;
+      padding: 20px;
+      button {
+        margin-top: 20px;
+        width: 200px;
+        height:50px;
+        background: white;
+        border: none;
+        &:hover {
+          background: #e6e6e6;
+        }
+      }
+    }
+    .hidden {
+      display: none;
+    }
+  }
+}

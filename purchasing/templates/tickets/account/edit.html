@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+Update Your Password
+{% endblock title %}
+{% block content %}
+<div class="page-wrap">
+  <div class="main-wrap">
+    <div class="sidebar">
+      <img src="/static/img/logo.jpg" alt="logo">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/support">Support</a>
+      <a href="/account">Account</a>
+    </div>
+    <div class="main_content accountupdate">
+      <div class="head_section">
+        <h1 class='head-title'>Your Account - Password Settings - {{ company }}</h1>
+      </div>
+      <div class="accountupdate-section">
+        <div class="changepasswordform">
+          <form class="changeaccountform"  method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" name="button">Update Account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,38 @@
+div.buy {
+  .buy-section {
+    background-color: #e6e6e6;
+    padding: 50px;
+    border-radius: 6px 0 0 0;
+    max-width: 90vw;
+    @media only screen and (max-width: 600px) {
+      padding: 10px;
+    }
+    label {
+      display: block;
+    }
+    input {
+      height: 52px;
+      width: 300px;
+      margin-top: 20px;
+    }
+    p {
+      border-top: 1px solid black;
+      width: 300px;
+      padding-top: 10px;
+      border-bottom: 1px solid black;
+      padding-bottom: 10px;
+    }
+    button {
+      width: 200px;
+      height: 52px;
+      background-color: white;
+      border: none;
+      text-transform: uppercase;
+      &:hover {
+        background-color: #6e6e6e;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}

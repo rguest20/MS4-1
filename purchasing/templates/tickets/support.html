@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}
+Your Support Requests
+{% endblock title %}
+{% block content %}
+<div class="page-wrap">
+  <div class="main-wrap">
+    <div class="sidebar">
+      <img src="/static/img/logo.jpg" alt="logo">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/support">Support</a>
+      <a href="/account">Account</a>
+    </div>
+    <div class="main_content support">
+      <div class="head_section">
+        <h1 class='head-title'>Your Support Requests - {{ company }}</h1>
+      </div>
+      <div class="support-section">
+        <div class="support-tab">
+          <a href="#">Active Tickets</a>
+          <a href="#">Closed Tickets</a>
+        </div>
+        <div class="top create-new">
+          <h2>Support Tickets</h2>
+            <a href="/report">
+              <div class="link">
+              Create New Ticket +
+            </div>
+            </a>
+        </div>
+        <div class="search">
+          <p>Search</p>
+        </div>
+        <div class="table">
+          <strong>
+            <div class="row">
+                <p>No.</p>
+                <p>Subject</p>
+                <p>Owner</p>
+                <p>Category</p>
+                <p>Priority</p>
+                <p>Status</p>
+                <p>See More Detail</p>
+            </div>
+          </strong>
+          {% for ticket in tickets %}
+          <div class="row">
+            <p>{{ ticket.id }}</p>
+            <p>{{ ticket.title }}</p>
+            <p>{{ ticket.client }}</p>
+            <p>.</p>
+            {% if ticket.severity == 'ST' %}
+            <p>Standard</p>
+            {% elif ticket.severity == 'HI' %}
+            <p>High</p>
+            {% elif ticket.severity == 'VH' %}
+            <p>Very High</p>
+            {% else %}
+            <p>Critical</p>
+            {% endif %}
+            {% if ticket.resolved == False %}
+            <p>In progress</p>
+            {% else %}
+            <p>Resolved</p>
+            {% endif %}
+            <p>
+              <a href="{{ ticket.id }}">Click to see more</a>
+            </p>
+          </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block content %}
+    <div class="page-wrap">
+      <div class="main-wrap">
+        <div class="sidebar">
+          <img src="/static/img/logo.jpg" alt="logo">
+          <a href="/dashboard">Dashboard</a>
+          <a href="/account">Account</a>
+        </div>
+        <div class="main_content dashboard">
+          <div class="head_section">
+            <h1 class='head-title'>Your Portal - Administrator</h1>
+          </div>
+          <div class="top_section">
+            <h2>Welcome Extramile Administrator</h2>
+            <div class="information">
+              <p>Unresolved tickets:</p>
+              <p>Over a week old:</p>
+            </div>
+          </div>
+          <div class="bottom_section">
+            <div class="view">
+              <h3>View Tickets</h3>
+              <p>This view will list tickets by date order, allowing you to see the newest tickets first</p>
+              <a href="admin/tickets/">View newest tickets</a>
+            </div>
+            <div class="search">
+              <h3>Search Tickets</h3>
+              <p>This will allow you to search for a ticket, whether current or resolved</p>
+              <a href="admin/search/">Search tickets</a>
+            </div>
+            <div class="companies">
+              <h3>Company Lookup</h3>
+              <p>Look up a company and see it's contract information</p>
+              <a href="admin/companies/">Company lookup</a>
+            </div>
+            <div class="log">
+              <h3>Log Hours</h3>
+              <p>Enter your hours against a ticket quickly</p>
+              <a href="admin/log/">Log hours</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

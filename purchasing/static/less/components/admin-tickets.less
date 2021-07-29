@@ -1,0 +1,58 @@
+div.admin-tickets {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  .admin-tickets_section {
+    background-color: #e6e6e6;
+    padding: 50px;
+    border-radius: 6px 0 0 0;
+    margin-bottom: 20px;
+    .hero {
+      background-color: #6e6e6e;
+      color: white;
+      padding: 20px;
+      border-radius: 6px;
+    }
+    .information {
+      padding: 0 20px;
+    }
+  }
+  .comments {
+    margin-top: 20px;
+    background-color: #e6e6e6;
+    border-radius: 6px 0 0 0;
+    padding: 60px;
+    position: relative;
+    h3 {
+      margin-top: 0;
+    }
+    .buttons {
+      position: absolute;
+      right: 60px;
+      top: 60px;
+
+      button {
+        background-color: white;
+        cursor: pointer;
+        border: none;
+        padding: 22px;
+        &:hover {
+          background-color: #6e6e6e;
+          color: white;
+        }
+      }
+    }
+    .comment {
+      background-color: #6e6e6e;
+      color: white;
+      padding: 20px;
+      &:nth-child(2n) {
+        background-color: #000;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

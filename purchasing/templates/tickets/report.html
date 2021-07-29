@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+Report A New Issue
+{% endblock title %}
+{% block content %}
+<div class="page-wrap">
+  <div class="main-wrap">
+    <div class="sidebar">
+      <img src="/static/img/logo.jpg" alt="logo">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/support">Support</a>
+      <a href="/account">Account</a>
+    </div>
+    <div class="main_content report">
+      <div class="head_section">
+        <h1 class='head-title'>Report a New Issue - {{ company }}</h1>
+      </div>
+      <div class="report-section">
+        <div class="back">
+          <a href="/support">To Active Tickets</a>
+        </div>
+        <div class="hero">
+          <h2>Ticket Name</h2>
+        </div>
+        <div class="ticket-form">
+          <form class="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <div class="buttons">
+              <button type="submit" name="button">Save</button>
+              <a href="/dashboard">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
