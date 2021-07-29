@@ -11,7 +11,7 @@ from django.contrib.auth.hashers import make_password
 from datetime import datetime, timezone
 import stripe
 import json
-from django.contrib.auth import get_user_model 
+from django.contrib.auth import get_user_model
 
 
 def index(request):
@@ -34,14 +34,39 @@ def index(request):
         form = LoginForm()
         return render(request,'tickets/index.html', {'form': form})
 
+def register
+    if request.user.is_authenticated:
+        return redirect('dashboard/')
+        if request.method == 'POST':
+            form = RegistrationForm(request.POST)
+            if form.is_valid():
+                User = get_user_model
+                user = new User()
+                user.username = request.POST['username']
+                user.password = make_password(request.POST['password'])
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    return HttpResponseRedirect('dashboard/')
+                else:
+                    messages.error(request, 'Error, please try again')
+                    form = RegistrationForm()
+                    return render(request,'tickets/index.html', {'form': form})
+        else:
+            form = RegistrationForm()
+            return render(request,'tickets/register.html', {'form': form})
+
 def dashboard(request):
     if not request.user.is_authenticated:
         return redirect('/')
     if request.user.is_staff:
         return redirect('/dashboard/admin')
-
-    company = Client.objects.filter(user=request.user).first()
-    total_hours = company.paid_extra_hours + company.contracted_monthly_SEM_hours + company.contracted_monthly_service_hours - company.hours_used_this_month
+    try:
+        company = Client.objects.filter(user=request.user).first()
+        total_hours = company.paid_extra_hours + company.contracted_monthly_SEM_hours + company.contracted_monthly_service_hours - company.hours_used_this_month
+    except:
+        message.error(request, 'This functionality will not work until you have been assigned to a company.  Please wait.')
+        return redirect('/logout')
     return render(request,'tickets/dashboard.html', {'company':company, 'hours': total_hours})
 
 def dashboard_admin(request):

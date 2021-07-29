@@ -6,13 +6,13 @@ Log In
     <div class="login-wrap">
       <div class="login-popup-wrap">
         <img src="/static/img/logo.jpg" alt="logo">
-        <h1 class='login-title'>Login</h1>
+        <h1 class='login-title'>Register</h1>
         <form class="login-form" method="post">
           {% csrf_token %}
           {{ form }}
-          <input type="submit" name="submit" value="Log In">
+          <input type="submit" name="submit" value="Register">
         </form>
-        <p>or alternatively, <a href="/register">you can register here</a> </p>
+        <p>or alternatively, <a href="/">you can login here</a> </p>
       </div>
     </div>
 {% endblock content %}
