@@ -83,7 +83,7 @@ def stripe_webhook(request):
     if event.type == 'checkout.session.completed':
         session = event.data.object
         hoursbought = session.amount_total / 10000
-        customer_email = session["customer_details"]["email"]
+        customer_email = session.customer_details.email
         customer = Client.objects.filter(client_email = customer_email).first()
         customer.paid_extra_hours += hoursbought
         customer.save()
