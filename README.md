@@ -10,7 +10,7 @@
 - LO5	Document the development process through a git based version control system and deploy the full application to a cloud hosting platform.
 
 **What this means**
-- Build a web application that is powering a non-relational database.
+- Build a web application that is powered with a relational database
 - Ensure UX design is considered throughout, producing a site that is functional and easily navigable
 - Create a website using the principles of MVCs using Python as a back end language.
 - Deploy correctly and without error to the Heroku platform
@@ -25,38 +25,33 @@
 - Ensure this is fully documented and commented to be clear to any developer reading through.
 
 **What I will build**
-To ensure that I hit these targets, I intend to build a freelancing website which will allow freelancers and companies to connect.  Inter personal messaging as well as job creation will be functional parts of the site.
-
-Users will be able to use this site to gain meaningful employment and potentially use the backend of the site to build a paid platform by which they could act as an agency.
+To ensure that I hit these targets, I intend to build a ticketing application for the web agency at which I work.  This will be a multi app django project that will allow clients to log tickets and pay for extra time and the agency to respond, log time against those tickets and monitor client details.
 
 **User stories**
 
 **First Time Users**
 
-- As a first time user (developer), I want to be able to sign up quickly and easily, creating an account that can be seen by agencies.
-- As a first time user (developer), I want to be able to search through companies that closely match my profile and see if they have jobs available.
-- As a first time user (company), I want to be able to search through the available developers based on several different criteria.
-- As a first time user (company/developer), I want assurances that my personal email will not be spammed by unscrupulous users.
-- As a first time user sending a message, I want the system to be simple and similar to email, that I am familiar with.
+- Geoff:
+Geoff is a COO of a small business who has taken a site out with Extra Mile.  Geoff is not technophobic, but struggles with complex terminology.  Geoff would like an easy to access site where he can log issues and see how his investment is moving along.
+
+- Francis:
+Francis is a Marketing Lead for a multinational company.  Francis would like to be able to get in touch quickly with ExtraMile in the event that the site goes down or other issues occur.  Francis would also like to be able to purchase more time if required
+
+- Tim:
+Tim is a new member of the projects team at ExtraMile.  He does not yet know the companies well and is feeling a little overwhelmed at the wealth of information he needs to have access to.  Tim would like a quick easy way to track how a company is doing and be able to respond if any client raises an issue.
 
 **Hitting these targets**
-- Upon entry to the webpage, you are greeted with a call to action to either login or register. This makes it easy to see where to go to sign up.
-- The site does not require an email as all messaging can be done through the site itself.  This secures users data and reduces and risk of a GDPR violation.
-- The search function quickly allows the user to search the database for Companies, Freelancers or available jobs.  This can be done either by title/name or by programming language/technology stack. This quickly allows the user to find what s/he is looking for.
-- In design, the system was built to look similar to email to ensure that users are not presented an interface that looks alien.
+- jsdf
 
 **Returning User**
-- As a user, I want to be able to check on the progress of my applications sent or received.
-- As a user, I want to be able to contact the site admin if there is a problem, or to report suspicious activity.
-- As a user, I want to be able to follow up any messages that have been sent to me.
-- (extension: As a user, I may want to create coding groups so that I can share hints and tips with my fellow coders)
-- (extension: As a user, I may want to view coding groups so that I can wee who is active and may be worth approaching with a job)
+- Caroline:
+As a seasoned developer at ExtraMile, Caroline knows how to deal quickly with issues and would like a quick and easy method by which she can log her hours and move on to the next ticket.
+
+- Henrietta:
+Henrietta likes to ensure everything is 'just so' and will send several emails through to ExtraMile on a daily basis.  If there is an easy system by which she can send multiple messages to advise on a developing situation then she is happy with it.  Unfortunately Henrietta is also severely colourblind and does not like clashing difficult to see screens.
 
 **Hitting these targets**
-- Upon login, relevant posts are offered to the users based on their chosen languages/tech stack.  This streamlines the search that the user may have to do.  
-- There is a contact page that allows users to quickly ask questions of the administration of the site.  This would usually be protected by a ReCaptcha to ensure that the site admin email is not spammed.
-- Responses and replies to messages have been built into the messaging system making returning to a previously sent message a breeze.
-- There is a visible change for companies when developers respond to a job listing.  This allows them to quickly identify when a response has been made and see if they are interested in the developer.
+- Upon
 
 **Entity Relationships**
 
@@ -65,18 +60,19 @@ There are many interconnected parts of the database.  These have been kept non-r
 ![Entity Relationship](static/images/entityrelationship.png "Flowchart")
 
 **Preliminary Designs**
-These can be found [here](wireframes.zip "Project Freelance Wireframes")
+These can be found [here](emc-customer-portal--wireframing-21404510.pdf "Wireframes")
 
 **Features**
 
 - Responsive on all device sizes
 - Database functionality driven
 - HTML/CSS/Javascript
-- Built in Python (Flask)
+- Built in Python (Django)
+- Protected with hCaptcha
 
 # **Post-Development**
 
-To access the page go to your favourite browser and type &quot;[https://ms3-rguest.herokuapp.com/](https://ms3-rguest.herokuapp.com/)&quot; into the search bar. The code is hosted at &quot;[https://github.com/rguest20/MS3](https://github.com/rguest20/MS3)&quot;.
+To access the page go to your favourite browser and type &quot;[https://ms4-rguest.herokuapp.com/](https://ms4-rguest.herokuapp.com/)&quot; into the search bar. The code is hosted at &quot;[https://github.com/rguest20/MS4-1](https://github.com/rguest20/MS4-1)&quot;.
 
 **Dependencies**
 
@@ -84,73 +80,65 @@ To access the page go to your favourite browser and type &quot;[https://ms3-rgue
 
 I am using HTML 5 and this is shown by the use of the <html> tag used at the start of the document. This comes with all of the semantic markup that I need to ensure that the code is easy to read and debug if necessary.
 
-**CSS/CSS Grid**
+**CSS/CSS Grid/LESS**
 
 To style the page, a mixture of CSS and the newer library CSS Grid was used to keep the site looking neat.  Checks were performed to ensure that, in the event of a browser that did not support grid, the site would look ok.  
-Other libraries brought in include:
 
-- Bootstrap CSS (activated via the flask-bootstrap python module)
-- Selectize CSS
+- LESS
+The CSS was compiled in this case using the LESS preprocessor.  This ensures that all CSS is compiled in terms of specificity and with little to no mistakes.
 
 **JavaScript**
 
-To help with the smooth running and operation of the site, several libraries were used that I have acknowledged in my acknowledgment page.  These are:
+To help with the smooth running and operation of the site, i have created a javascript file within my static files that keeps the site operational.
 
-- JQuery
-- select2.js
-- selectize js
+- Gulp(v4)
+I created a gulpfile to compile the javascript and less files into a single js file or css file.  This allowed me to use the power of LESS to ensure that my CSS is built in a functional and elegant way.
 
 **Python**
 
 Python was used as the fundamental language in which the site was built and the following modules were utilized and would be required if rebuilt:
 
 Core flask modules
-- flask
-- flask-bootstrap
-- flask-wtf
-- flask-mongoengine
-- pymongo
-- Flask-Login
-- Flask-Admin
-- Flask-Redis
-
-Extension modules
+- django
 - datetime
 - dnspython
+- python-dotenv
+- django-tinymce
+- django-jsonify
+- psycopg2
+
+Extension modules
 - python-dotenv (for storing secrets)
+- stripe (for e-payments)
+- whitenoise (help with serving static files)
+- dj-database-url (to ensure that the database could be kept consistent across postgres and SQLite3)
 
 Production module
-gunicorn
-
-- (flask_sqlalchemy and flask_migrate are included in the requirements but is deprecated)
+- gunicorn
 
 **How to use**
 
-**Home Page**
-![Home Page](static/images/home.png "Home Page")
-This page is a hub allowing you access to the features of the site.  A basic description is given below along with some taster CTA boxes showing jobs that are available.  Upon login, this page will alter depending on the type of user that is present.  At the head of the page are several links that allow the user to navigate the site.
+**Login Page**
+![Login Page](static/images/home.png "Home Page")
 
-**Search page**
-![Search Page](static/images/search.png "Search Page")
-By selecting the tab and the dropdown, you can search either companies, freelancers or job posts.  If searching companies or job posts, a helpful box will give you a list of available names once 3 letters have been typed in.
 
-**Message page**
-![Message Page](static/images/messages.png "Message Page")
-By selecting the correct tab, you can filter by your sent or recieved messages.  Clicking the buttons on any of these will allow you to continue the conversation or delete the message.
+**Dashboard page**
+![Dashboard Page](static/images/search.png "Search Page")
+
+
+**Ticketing page**
+![Ticketing Page](static/images/messages.png "Message Page")
+
 
 **Account page**
 ![Account Page](static/images/account.png "Account Page")
-These options will help personalise your experience of the site.  Based on the jobs selected and type of user, different content will be presented.
-The hourly rate is so users and companies can best match each other and create a competitive market.
 
-**Job page**
-![Job Post Page](static/images/jobpost.png "Job Post Page")
-![Job Response Page](static/images/jobresponse.png "Job Response Page")
-Both of these pages show how jobs are dealt with by the system.  Posts allow companies to show what they are looking for and what they are offering.  The response allows counter offers to be made and allows the freelancer to undercut their competition by offering their services at a lower rate.  
+**Payment pages**
+![Payment Page](static/images/jobpost.png "Job Post Page")
 
-**Profile page**
-![Profile Page](static/images/profile.png "Profile Page")
-If companies or freelancers wish to know more about each other then they can visit each others profile pages and get a feel for who they may be going into business with.  At a later date, I am looking to add the ability for freelancers to have links to their work so that they can showcase for companies what they are capable of.
+
+**Company Admin page**
+![Company Admin Page](static/images/profile.png "Profile Page")
 
 **UX design**
 
@@ -158,10 +146,11 @@ To make the design more user friendly I have done the following:
 
 - To ensure that accessibility is not an issue for colorblind people, I have tested the website using the toptal.com colorblind site checker in achromatopsia setting that renders the page in greyscale.  All links and CTAs were still visible.
 ![Toptal Check](static/images/toptal.png "Toptal Check")
-- CTAs and links are made obvious by keeping them in the blue that people expect a link to be in.  Generally, where it looked right, I have also made the text bold to show that it is clickable.
+- CTAs and links are made obvious by ensuring that they change colour when hovered and keeping consistent buttons.
 - Colour contrast was checked to ensure readibility
 - All buttons are clickable and take you to the expected area of the site.
 - Any required form sections will flag if not filled in.
+- Messages added to inform users if they have caused an error.
 - If a person is not logged in, they will be redirected to the register page if they attempt to access any area that they should not.  
 - Potentially more vital parts of the site will only accept POST requests.  This makes it difficult for someone to accidentally cause damage to the database.
 
@@ -177,11 +166,9 @@ Only one warning that was resolved by setting a content-language meta tag.  This
 ![Screenshot of css test](static/images/css_check.png "CSS Check")
 One error detected in bootstrap module.  No errors in my CSS
 
-**Unit Testing - Database**
 
-![Screenshot of unit test](static/images/unittest.png "Unit Test")
-The database was tested to ensure that required functionality was present. All tests pass.
-
+**Manual Testing**
+THIS NEEDS CONTENT!!!!!
 # **Deployment**
 
 **Do Not Deploy To GitHub Pages – Python does not work on GitHub Pages**
@@ -203,7 +190,7 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 5. Change the current working directory to the location where you want the cloned directory to be made.
 6. Type git clone, and then paste the URL you copied in Step 3.
 
-$ git clone https://github.com/rguest20/ms2
+$ git clone https://github.com/rguest20/ms4-1
 
 1. Press Enter. Your local clone will be created.
 
@@ -230,18 +217,23 @@ The project was deployed to Heroku using the following steps...
 4. This will link to your GitHub account and deploy to the site when changes are detected.
 5. Click the Settings bar and add the following Config Vars:
 - SECRET_KEY: (this should be a difficult to guess string)
-- MONGO_LOGIN: (this should be the url of the mongodb database that you intend to use with the app)
-- FLASK_APP: app.py
-- FLASK_CONIFG: heroku
+- : (this should be the url of the mongodb database that you intend to use with the app)
+- : app.py
+- : heroku
 6. Check that the build has occurred as expected.
 7. Enjoy your shiny new app, make any changes that are required whilst on a dev server.
 
 **Production**
 
 1. When ready to enter production, we are going to create app_wsgi.py and edit it so that it now says:
-`if __name__=="__main__":
-  app.run()`
-2. Alter the procfile so that it now says `web: gunicorn app_wsgi:app`
+`import os
+
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'emc_tickets.settings')
+
+application = get_wsgi_application()`
+2. Alter the procfile so that it now says `web: gunicorn emc_tickets.wsgi`
 3. Create a runtime.txt and specify the version of python that you are running with `python-3.9.5`
 4. Push to GitHub and let heroku build the app.  This will now be a production server without a debug mode.
 
@@ -249,24 +241,18 @@ The project was deployed to Heroku using the following steps...
 
 **Code**
 
-- [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
+- [Django](https://flask.palletsprojects.com/en/1.1.x/): Lite Framework in which the app was built.
 
-- [Flask](https://flask.palletsprojects.com/en/1.1.x/): Lite Framework in which the app was built.
-
-- [Select2](https://select2.org/): Jquery Replacement for select boxes.
-
-- [Jquery](https://jquery.com/): Library to make javascript more readable/funtional.
+- [django-tinymce](https://jquery.com/): Tinymce feature for django websites.  Much nicer and more features than a standard textarea.
 
 **Content**
 
-- All content was written by the developer, except for icons taken from FontAwesome
+- All content was written by the developer, design was performed by Shannon Wright at ExtraMile Communications.
 
 **Media**
 
-- There are media files available in the assets folder that are freely available from google image search (with the option to only show images that are correctly licenced)
+- The ExtraMile Logo is taken with permission from ExtraMile Communications.  It remains property of ExtraMile and it's use without seeking further permission is prohibited.
 
 **Known issues/extensions to be added**
 
-- Admin area to be added at a later date, allowing refreshing of passwords and removal of troublesome users.
-- Links for companies/freelancer on profile page to be added
-- Avatars on profile page to be added
+-
