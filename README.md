@@ -274,7 +274,3 @@ application = get_wsgi_application()`
 **Media**
 
 - The ExtraMile Logo is taken with permission from ExtraMile Communications.  It remains property of ExtraMile and it's use without seeking further permission is prohibited.
-
-**Known issues/extensions to be added**
-
--
