@@ -55,9 +55,9 @@ Henrietta likes to ensure everything is 'just so' and will send several emails t
 
 **Entity Relationships**
 
-There are many interconnected parts of the database.  These have been kept non-relational to abide by the coursework criteria:
+There are many interconnected parts of the database.  These are relational to abide by the coursework criteria:
 
-![Entity Relationship](static/images/entityrelationship.png "Flowchart")
+![Entity Relationship](docs/entity.png "Flowchart")
 
 **Preliminary Designs**
 These can be found [here](emc-customer-portal--wireframing-21404510.pdf "Wireframes")
@@ -116,7 +116,8 @@ Extension modules
 Production module
 - gunicorn
 
-**How to use**
+# **How to use**
+Pages that require a login are NOT available unless a linked account is logged in. This is to protect the information of the clients of ExtraMile.
 
 **Login Page**
 Upon login there is either a login form or a registration form.  However, the registration form will not allow access to the site without an admin linking your account to a company.  There is a hCaptcha field to prevent bot spamming.  
@@ -127,25 +128,29 @@ Upon login there is either a login form or a registration form.  However, the re
 For both the admin and client there are dashboard with obvious call to actions available below.  The menu on the side allows for fast navigation of the site.  A short explanation of each call to action is given on the page.
 
 **Ticketing page**
-![Ticketing Page](static/images/messages.png "Message Page")
-
+![Ticketing Page](docs/create-ticket.png "Ticket Creation")
+![Ticketing Page](docs/view-ticket.png "Ticket View")
+This page allows you to create and edit your ticket.  There is also a comment feature that allows both admins and the company who raised the ticket to pass information back and forth.  All information is clear and visible.  If you attempt to access a ticket for a company that you are not associated with, you will be put back to the dashboard.
 
 **Account page**
-![Account Page](static/images/account.png "Account Page")
+![Account Page](docs/profile.png "Account Page")
+![Account Page](docs/profile-edit.png "Account Edit Page")
+The account page contains all the information available to both the account holder and ExtraMile.  There is a link available to change password and also delete the account and linked company from the database.  You can also edit your account to better help ExtraMile create the website.
 
-**Payment pages**
-![Payment Page](static/images/jobpost.png "Job Post Page")
-
+**Time Logging page**
+![Time Logging Page](docs/time-logging.png "Time Logging Page")
+This page allows ExtraMile to log time against tickets, keeping track of time so they do not over service clients.
 
 **Company Admin page**
 ![Company Admin Page](static/images/profile.png "Profile Page")
+This page contains a javascript lookup to allow account managers to keep track on company information.  There is also an area to add companies and clients to the database so the database can be expanded.
 
 **UX design**
 
 To make the design more user friendly I have done the following:
 
 - To ensure that accessibility is not an issue for colorblind people, I have tested the website using the toptal.com colorblind site checker in achromatopsia setting that renders the page in greyscale.  All links and CTAs were still visible.
-![Toptal Check](static/images/toptal.png "Toptal Check")
+![Toptal Check](https://www.toptal.com/designers/colorfilter?orig_uri=https://ms4-rguest.herokuapp.com&process_type=deutan "Toptal Check")
 - CTAs and links are made obvious by ensuring that they change colour when hovered and keeping consistent buttons.
 - Colour contrast was checked to ensure readibility
 - All buttons are clickable and take you to the expected area of the site.
@@ -176,12 +181,12 @@ An example of the testing done is available ![here](docs/testingpayment.zip "Pay
 **W3C Validator**
 
 - HTML
-![Screenshot of html test](static/images/html_check.png "HTML Check")
-Only one warning that was resolved by setting a content-language meta tag.  This gets around the fact that flask_bootstrap does not have a lang set in the HTML tag
+![Screenshot of html test](docs/htmlcheck.png "HTML Check")
+No issues
 
 - CSS
-![Screenshot of css test](static/images/css_check.png "CSS Check")
-One error detected in bootstrap module.  No errors in my CSS
+![Screenshot of css test](docs/csscheck.png "CSS Check")
+No issues
 
 **GitGuardian Check**
 GitGuardian was used to ensure that no secrets were revealed in my git log.  The results can be seen [here](docs/gitguardian.png "GitGuardian Log")
