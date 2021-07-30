@@ -41,7 +41,7 @@ Francis is a Marketing Lead for a multinational company.  Francis would like to 
 Tim is a new member of the projects team at ExtraMile.  He does not yet know the companies well and is feeling a little overwhelmed at the wealth of information he needs to have access to.  Tim would like a quick easy way to track how a company is doing and be able to respond if any client raises an issue.
 
 **Hitting these targets**
-- jsdf
+- To ensure that I hit these targets for first time users, I have made sure that the site was designed and built with UX in mind.  All buttons and call to actions are obvious and their outcomes are also obvious. The dashboard contains all the links that would be needed by either clients or ExtraMile to monitor the status of the tickets.  Some extra information is also given on the dashboard.
 
 **Returning User**
 - Caroline:
@@ -51,7 +51,7 @@ As a seasoned developer at ExtraMile, Caroline knows how to deal quickly with is
 Henrietta likes to ensure everything is 'just so' and will send several emails through to ExtraMile on a daily basis.  If there is an easy system by which she can send multiple messages to advise on a developing situation then she is happy with it.  Unfortunately Henrietta is also severely colourblind and does not like clashing difficult to see screens.
 
 **Hitting these targets**
-- Upon
+- Upon entry to the admin dashboard there is a log button that allows admins to quickly and easily log time against certain tickets.  Constant time tracking is available on the dashboard for clients as well.  To keep with accessibility requirements, the site is in grayscale.
 
 **Entity Relationships**
 
@@ -119,12 +119,12 @@ Production module
 **How to use**
 
 **Login Page**
-![Login Page](static/images/home.png "Home Page")
-
+Upon login there is either a login form or a registration form.  However, the registration form will not allow access to the site without an admin linking your account to a company.  There is a hCaptcha field to prevent bot spamming.  
 
 **Dashboard page**
-![Dashboard Page](static/images/search.png "Search Page")
-
+![Admin Dashboard Page](docs/admin-dashboard.png "Admin Dash")
+![Dashboard Page](docs/dashboard.png "Dashboard")
+For both the admin and client there are dashboard with obvious call to actions available below.  The menu on the side allows for fast navigation of the site.  A short explanation of each call to action is given on the page.
 
 **Ticketing page**
 ![Ticketing Page](static/images/messages.png "Message Page")
@@ -156,6 +156,23 @@ To make the design more user friendly I have done the following:
 
 # **Testing**
 
+**Manual Testing**
+All aspects of the site has experienced a lot of manual testing.  
+- Account creation - Tested and working
+- Company creation - Tested and working
+- Account linking - Tested and working
+- Account Removal - Tested and working
+- Hours logging - Tested and working
+- Company lookup - Tested and working
+- Ticket creation - Tested and working
+- Comment creation  - Tested and working
+- Ticket editing - Tested and working
+- Ticket and comment readable by interested parties  - Tested and working
+- Payment system - Tested and working
+- Webhooks  - Tested and working
+
+An example of the testing done is available ![here](docs/testingpayment.zip "Payment Test")
+
 **W3C Validator**
 
 - HTML
@@ -166,9 +183,9 @@ Only one warning that was resolved by setting a content-language meta tag.  This
 ![Screenshot of css test](static/images/css_check.png "CSS Check")
 One error detected in bootstrap module.  No errors in my CSS
 
+**GitGuardian Check**
+GitGuardian was used to ensure that no secrets were revealed in my git log.  The results can be seen [here](docs/gitguardian.png "GitGuardian Log")
 
-**Manual Testing**
-THIS NEEDS CONTENT!!!!!
 # **Deployment**
 
 **Do Not Deploy To GitHub Pages – Python does not work on GitHub Pages**
@@ -241,13 +258,13 @@ application = get_wsgi_application()`
 
 **Code**
 
-- [Django](https://flask.palletsprojects.com/en/1.1.x/): Lite Framework in which the app was built.
+- [Django](https://www.djangoproject.com/): Lite Framework in which the app was built.
 
-- [django-tinymce](https://jquery.com/): Tinymce feature for django websites.  Much nicer and more features than a standard textarea.
+- [django-tinymce](https://django-tinymce.readthedocs.io/en/latest/): Tinymce feature for django websites.  Much nicer and more features than a standard textarea.
 
 **Content**
 
-- All content was written by the developer, design was performed by Shannon Wright at ExtraMile Communications.
+- All content was written by the developer, design was aided by Shannon Wright at ExtraMile Communications.
 
 **Media**
 
