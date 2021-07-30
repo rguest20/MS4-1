@@ -64,32 +64,30 @@ def cancelled(request):
 def success(request):
     return render(request,'tickets/stripe/success.html', {})
 
+
 @csrf_exempt
-def stripe_webhook(request):
+def my_webhook_view(request):
     stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
-    endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
     payload = request.body
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
 
     try:
-        event = stripe.Webhook.construct_event(
-            payload, sig_header, endpoint_secret
+        event = stripe.Event.construct_from(
+        json.loads(payload), stripe.api_key
         )
     except ValueError as e:
-        # Invalid payload
-        return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
-        return HttpResponse(status=400)
+    # Invalid payload
+    return HttpResponse(status=400)
 
-    # Handle the checkout.session.completed event
-    if event['type'] == 'checkout.session.completed':
+    # Handle the event
+    if event.type == 'checkout.session.completed':
         session = event['data']['object']
         hoursbought = session.amount_total / 10000
         customer_email = session["customer_details"]["email"]
         customer = Client.objects.filter(client_email = customer_email).first()
         customer.paid_extra_hours += hoursbought
         customer.save()
+    else:
+        print('Unhandled event type {}'.format(event.type))
 
     return HttpResponse(status=200)
