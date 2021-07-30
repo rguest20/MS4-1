@@ -11,7 +11,6 @@ class LoginForm(forms.Form):
 class NewTicketForm(forms.Form):
     subject = forms.CharField(label='Subject', max_length=100)
     priority = forms.CharField(label='Priority', widget=forms.Select(choices=[('ST', 'Normal'),('HI', 'High'),('VH', 'Very High'), ('CR', 'Critical')]))
-    category = forms.CharField(label='Category', widget=forms.Select(choices=[('normal', 'Normal'),('high', 'High'),('vhigh', 'Very High'), ('critical', 'Critical')]))
     description = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
     hcaptcha = hCaptchaField()
 
