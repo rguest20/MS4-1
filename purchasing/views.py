@@ -77,7 +77,7 @@ def my_webhook_view(request):
         )
     except ValueError as e:
     # Invalid payload
-    return HttpResponse(status=400)
+        return HttpResponse(status=400)
 
     # Handle the event
     if event.type == 'checkout.session.completed':
