@@ -66,7 +66,7 @@ def success(request):
 
 
 @csrf_exempt
-def my_webhook_view(request):
+def stripe_webhook(request):
     stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
     payload = request.body
     event = None
@@ -81,7 +81,7 @@ def my_webhook_view(request):
 
     # Handle the event
     if event.type == 'checkout.session.completed':
-        session = event['data']['object']
+        session = event.data.object
         hoursbought = session.amount_total / 10000
         customer_email = session["customer_details"]["email"]
         customer = Client.objects.filter(client_email = customer_email).first()
