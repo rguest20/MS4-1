@@ -52,6 +52,7 @@ def create_checkout_session(request):
                 cancel_url=domain_url + 'cancelled/',
                 payment_method_types=['card'],
                 mode='payment',
+                client_reference_id= request.user.username,
                 line_items=[{'quantity': dict, 'price_data': {'currency': 'GBP', 'product': 'prod_JutS7RlYuaxtDj', 'unit_amount': productprice.unit_amount}}]
             )
             return JsonResponse({'sessionId': checkout_session['id']})
@@ -84,7 +85,7 @@ def stripe_webhook(request):
         session = event.data.object
         hoursbought = session.amount_total / 10000
         customer_email = session.customer_details.email
-        customer = Client.objects.filter(client_email = customer_email).first()
+        customer = Client.objects.filter(name = session.client_reference_id).first()
         customer.paid_extra_hours += hoursbought
         customer.save()
     else:

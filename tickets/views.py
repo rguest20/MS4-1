@@ -39,20 +39,25 @@ def register(request):
         return redirect('/dashboard')
 
     if request.method == 'POST':
-        form = CreateNewUser(request.POST)
+        form = RegisterUserCompany(request.POST)
         username = request.POST['username']
         password = request.POST['password']
-        safepassword = make_password(password)
-        User = get_user_model()
-        newuser = User()
-        newuser.username = username
-        newuser.password = safepassword
-        newuser.save()
-        login(request, newuser)
-        return redirect('/')
+        repeat_password = request.POST['repeat_password']
+        if password != repeat_password:
+            messages.error(request, 'Passwords do not match')
+            return redirect('/register')
+        else:
+            safepassword = make_password(password)
+            User = get_user_model()
+            newuser = User()
+            newuser.username = username
+            newuser.password = safepassword
+            newuser.save()
+            login(request, newuser)
+            return redirect('/')
 
     else:
-        form = CreateNewUser()
+        form = RegisterUserCompany()
         return render(request,'tickets/register.html', {'form': form})
 
 def dashboard(request):
