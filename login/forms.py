@@ -14,3 +14,4 @@ class RegisterUserCompany(forms.Form):
     company_name = forms.CharField()
     address = forms.CharField(widget=TinyMCE(attrs={'cols': 10, 'rows': 8}), required = False)
     company_registration_number = forms.CharField()
+    contracted_service_hours = forms.CharField()
