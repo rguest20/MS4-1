@@ -7,11 +7,11 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput())
 
 class RegisterUserCompany(forms.Form):
-    username = forms.CharField(max_length = 20)
     company_email = forms.EmailField()
+    username = forms.CharField(max_length = 20)
     password = forms.CharField(max_length=20, widget=forms.PasswordInput())
     repeat_password = forms.CharField(max_length=20, widget=forms.PasswordInput())
     company_name = forms.CharField()
-    address = forms.CharField(widget=TinyMCE(attrs={'cols': 10, 'rows': 8}), required = False)
+    business_address = forms.CharField(widget=TinyMCE(attrs={'cols': 10, 'rows': 8}), required = False)
     company_registration_number = forms.CharField()
     contracted_service_hours = forms.CharField()
