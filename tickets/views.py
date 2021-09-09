@@ -29,14 +29,15 @@ def dashboard(request):
         return redirect('/dashboard/admin')
     try:
         company = Client.objects.filter(user=request.user).first()
-        total_hours = company.paid_extra_hours + \
-            company.contracted_monthly_SEM_hours + \
-                company.contracted_monthly_service_hours - \
-                    company.hours_used_this_month
+        total_hours = company.paid_extra_hours
+        + company.contracted_monthly_SEM_hours
+        + company.contracted_monthly_service_hours
+        - company.hours_used_this_month
     except BaseException:
         messages.error(
             request,
-            'There has been an error.  Please wait, our admins will assign you soon.')
+            'There has been an error.  Please wait,\
+            our admins will assign you soon.')
         return redirect('/logout')
     return render(request, 'tickets/dashboard.html',
                   {'company': company, 'hours': total_hours})

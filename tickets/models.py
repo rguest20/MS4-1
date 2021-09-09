@@ -49,4 +49,4 @@ class Comment(models.Model):
     date_sent = models.DateTimeField('Date Sent', blank=True)
 
     def __str__(self):
-        return f'{self.ticket.client} - {self.ticket.issue} - {self.date_sent:%d-%m-%Y}'
+        return f'{self.ticket.issue} - {self.date_sent:%d-%m-%Y}'
