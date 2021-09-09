@@ -1,4 +1,35 @@
 .sidebar{
+  max-height: 100vh;
   display: grid;
-  grid-template-rows: 150px 50px 50px 50px;
+  grid-auto-rows: 150px 50px 50px 50px;
+
+  @media only screen and (max-width: 525px) {
+    grid-auto-rows: 80px 50px 50px 50px;
+    :nth-child(1n+2){
+      display: none;
+    }
+  }
+  &.show {
+    :nth-child(1n+2){
+      display: block;
+      width: 78vw;
+      text-align: right;
+    }
+  }
+}
+
+.burger-menu {
+  position: absolute;
+  display: none;
+  top:20px;
+  right:20px;
+  button {
+    font-size: xx-large;
+    background: transparent;
+    width: 50px;
+    border: none;
+  }
+  @media only screen and (max-width: 525px) {
+    display: block;
+  }
 }

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{% static 'js/editor.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
+    <script src="https://kit.fontawesome.com/5b493034fa.js" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock title %}</title>
   </head>
@@ -22,6 +23,11 @@
 {% if request.user.is_authenticated %}
 <div class="logout">
   <a href="/logout">Log Out</a>
+</div>
+<div class="burger-menu">
+  <button type="button" name="button" onclick="showMenu()">
+    <i class="fas fa-ellipsis-v"></i>
+  </button>
 </div>
 {% endif %}
 </body>
