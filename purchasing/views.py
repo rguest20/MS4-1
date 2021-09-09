@@ -98,9 +98,10 @@ def stripe_webhook(request):
         hoursbought = session.amount_total / 10000
         customer_email = session.customer_details.email
         User = get_user_model()
-        userrequested = User.objects.filter(username = session.client_reference_id).first()
+        userrequested = User.objects.filter(
+            username=session.client_reference_id).first()
         customer = Client.objects.filter(
-            user= userrequested).first()
+            user=userrequested).first()
         customer.paid_extra_hours += hoursbought
         customer.save()
     else:
