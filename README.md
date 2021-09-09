@@ -142,7 +142,7 @@ The account page contains all the information available to both the account hold
 This page allows ExtraMile to log time against tickets, keeping track of time so they do not over service clients.
 
 **Company Admin page**
-![Company Admin Page](static/images/profile.png "Profile Page")
+![Company Admin Page](docs/company-admin.png "Company Admin")
 This page contains a javascript lookup to allow account managers to keep track on company information.  There is also an area to add companies and clients to the database so the database can be expanded.
 
 **UX design**
@@ -150,7 +150,7 @@ This page contains a javascript lookup to allow account managers to keep track o
 To make the design more user friendly I have done the following:
 
 - To ensure that accessibility is not an issue for colorblind people, I have tested the website using the toptal.com colorblind site checker in achromatopsia setting that renders the page in greyscale.  All links and CTAs were still visible.
-![Toptal Check](https://www.toptal.com/designers/colorfilter?orig_uri=https://ms4-rguest.herokuapp.com&process_type=deutan "Toptal Check")
+[Toptal Check](https://www.toptal.com/designers/colorfilter?orig_uri=https://ms4-rguest.herokuapp.com&process_type=deutan "Toptal Check")
 - CTAs and links are made obvious by ensuring that they change colour when hovered and keeping consistent buttons.
 - Colour contrast was checked to ensure readibility
 - All buttons are clickable and take you to the expected area of the site.
