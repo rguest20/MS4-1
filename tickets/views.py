@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 import stripe
 import json
 from django.contrib.auth import get_user_model
-import clients
+from clients.models import Client
 
 
 def index(request):
