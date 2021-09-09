@@ -9,12 +9,11 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import dj_database_url
 import os
 from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
-import dj_database_url
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +22,6 @@ STATIC_DIR = BASE_DIR / 'tickets/static'
 
 # Extra places for collectstatic to find static files.
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -36,8 +34,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-'localhost',
-'ms4-rguest.herokuapp.com'
+    'localhost',
+    'ms4-rguest.herokuapp.com'
 ]
 
 
