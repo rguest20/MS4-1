@@ -99,6 +99,7 @@ def stripe_webhook(request):
         customer_email = session.customer_details.email
         customer = Client.objects.filter(
             name=session.client_reference_id).first()
+        HttpResponse(str(customer))
         customer.paid_extra_hours += hoursbought
         customer.save()
     else:
