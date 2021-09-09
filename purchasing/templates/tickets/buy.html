@@ -16,7 +16,7 @@ Buy More Hours
         <h1 class='head-title'>Buy More Hours - {{ company }}</h1>
       </div>
       <div class="buy-section">
-        <label for="hourstobuy">How many hours would you like to buy (please ensure you use the email associated with you account on the stripe payment page ({{ company.client_email }})): </label>
+        <label for="hourstobuy">How many hours would you like to buy: </label>
         <input id ='hours' type="number" name="hourstobuy" value="" onchange="updatePrice()">
         <p>Price: £<span id='price'>0</span></p>
         <button id='buyButton' type="submit" name="button">Buy</button>
