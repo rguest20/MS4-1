@@ -266,6 +266,18 @@ application = get_wsgi_application()`
 3. Create a runtime.txt and specify the version of python that you are running with `python-3.9.5`
 4. Push to GitHub and let heroku build the app.  This will now be a production server without a debug mode.
 
+#**User Stories Outcomes**
+
+- Geoff: To ensure that Geoff gets his wish, I have made it so that upon logging into the site, there is an obvious call to action where Geoff can check any and all tickets that he has raised and see their statuses.  Another call to action is there to quickly raise new issues that Geoff uncovers
+
+- Francis: Upon logging in, there is a call to action allowing Francis to phone Extramile in the event that there is an emergency that has occurred.  Other than that, it is relatively quick and easy for Francis to raise a ticket and liase with the support from Extramile through the system.
+
+- Tim: This is based on a real event where the team at Extramile needed information on a company quickly to respond accurately to an issue.  This is now available on the admin dashboard behind another call to action.  Upon going into client administration, details on a client can be picked up quickly.
+
+- Caroline: To allow Caroline to log her hours quickly, she can go to the log CTA in the admin back area and log hours directly against a task.  In the future this can be used to help work out which tasks are taking a long time and thus better plan out people's hours against them.
+
+- Henrietta: Again, for Henrietta, the comment system allows a ticket to be updated multiple times between the client and the company.  This makes sure that a dialogue is maintained and peace of mind can be maintained throughout.  
+
 **Credits**
 
 **Code**
@@ -297,3 +309,10 @@ account. Instead, it is now handled by passing a variable to and from stripe.
 - Logo on splash page made transparent
 - Users who are logged in and switch to the registration page no longer cause a 500 error.
 - [Screaming Frog](docs/screamingfrog.png) run on the site to test for broken links
+
+# **Future Developments**
+In future, I would like the following additions to the ticketing system:
+1. Implementation with Wrike - a time management software.  This would also allow developers and clients keep better contact with each other.
+2. Email notifications
+3. Additional features such as web crawling and alt text robot adding to aid with SEO issues.
+4. AI prediction of timings for tasks based on data from previous completions.
