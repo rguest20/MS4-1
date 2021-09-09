@@ -14,4 +14,4 @@ class RegisterUserCompany(forms.Form):
     company_name = forms.CharField()
     business_address = forms.CharField(widget=TinyMCE(attrs={'cols': 10, 'rows': 8}), required = False)
     company_registration_number = forms.CharField()
-    contracted_service_hours = forms.CharField()
+    contract = forms.CharField(label='Select Your Contract', widget=forms.Select(choices=[('2hour', '2 Hours a Month')]))

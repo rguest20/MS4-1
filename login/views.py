@@ -41,16 +41,33 @@ def register(request):
         username = request.POST['username']
         password = request.POST['password']
         repeat_password = request.POST['repeat_password']
+        email = request.POST['company_email']
+        name = request.POST['company_name']
+        address = request.POST['business_address']
+        registration = request.POST['company_registration_number']
+        contract = request.POST['contract']
         if password != repeat_password:
             messages.error(request, 'Passwords do not match')
-            return redirect('/register')
+            return redirect('/login/register')
         else:
             safepassword = make_password(password)
+            newcontract = Contract.objects.filter(contract_name = contract).first()
             User = get_user_model()
             newuser = User()
             newuser.username = username
             newuser.password = safepassword
             newuser.save()
+            newclient = Client()
+            newclient.user = newuser
+            newclient.client_name = name
+            newclient.client_email = email
+            newclient.address = address
+            newclient.client_registered_company_number = registration
+            newclient.live_client = True
+            newclient.date_registered = datetime.now()
+            newclient.contract_type = newcontract
+            newclient.contract_start_date = datetime.now()
+            newclient.save()
             login(request, newuser)
             return redirect('/')
 
