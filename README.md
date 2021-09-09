@@ -191,6 +191,13 @@ No issues
 **GitGuardian Check**
 GitGuardian was used to ensure that no secrets were revealed in my git log.  The results can be seen [here](docs/gitguardian.png "GitGuardian Log")
 
+**PEP8 Check**
+To test that the code used in my site was good quality and compliant with the PEP8 standard, I ran a 2 step process. Step 1 was to use autopep8 python module on each of my sections of code which automatically corrects most validation fails in pep8.  After this I ran my code through [pep8online.com](http://pep8online.com/) which then checks the output to ensure that all potential errors were caught.  I have included 3 images from my code to show that I got passes
+
+![pep8 number 1](docs/pep8check2.png "PEP8 Check 1")
+![pep8 number 2](docs/pep8check3.png "PEP8 Check 2")
+![pep8 number 3](docs/pep8check4.png "PEP8 Check 3")
+
 # **Deployment**
 
 **Do Not Deploy To GitHub Pages – Python does not work on GitHub Pages**
@@ -289,4 +296,4 @@ account. Instead, it is now handled by passing a variable to and from stripe.
 - Code cleaned to PEP8 standards.
 - Logo on splash page made transparent
 - Users who are logged in and switch to the registration page no longer cause a 500 error.
-- [Screaming Frog](docs/screamingfrog.png) run on the site to test for broken links 
+- [Screaming Frog](docs/screamingfrog.png) run on the site to test for broken links
