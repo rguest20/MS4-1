@@ -74,6 +74,16 @@
   line-height: 19px;
   text-align: center;
 }
+.login-wrap .login-popup-wrap .login-form select {
+  border: none;
+  height: 52px;
+  background-color: white;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  font-size: 18px;
+  letter-spacing: 0.16px;
+  line-height: 24px;
+}
 .introduction {
   width: 60%;
   justify-self: center;
