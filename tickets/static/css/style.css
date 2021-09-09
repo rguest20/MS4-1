@@ -11,13 +11,14 @@
   border-radius: 10px;
   padding: 100px 100px;
   display: grid;
+  width: 60%;
   justify-self: center;
   text-align: center;
 }
 .login-wrap .login-popup-wrap img {
+  justify-self: center;
   max-width: 300px;
   padding: 20px;
-  background-color: white;
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -50,7 +51,6 @@
 .login-wrap .login-popup-wrap .login-form input[type='text'] {
   border: none;
   height: 52px;
-  max-width: 390px;
   background-color: white;
   -ms-flex-item-align: stretch;
       align-self: stretch;
@@ -73,6 +73,20 @@
   letter-spacing: 1px;
   line-height: 19px;
   text-align: center;
+}
+.introduction {
+  width: 60%;
+  justify-self: center;
+  background-color: #6E6E6E;
+  padding: 100px;
+  margin-top: 20px;
+  border-radius: 6px;
+  color: #e6e6e6;
+}
+.introduction a {
+  font-weight: bolder;
+  text-decoration: none;
+  color: #e6e6e6;
 }
 .sidebar {
   max-height: 100vh;

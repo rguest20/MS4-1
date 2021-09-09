@@ -5,8 +5,12 @@ Log In
 {% block content %}
     <div class="login-wrap">
       <div class="login-popup-wrap">
-        <img src="/static/img/logo.jpg" alt="logo">
-        <h1 class='login-title'>Login</h1>
+        <a href="https://www.extramilecommunications.com" target="_blank">
+          <img src="/static/img/logo-removebg.png" alt="logo">
+        </a>
+        <h1 class='login-title'>Ticketing System Login</h1>
+        <p>If you already know what you're doing, then enter your username and password
+        and we will see how we can help.</p>
         <form class="login-form" method="post">
           {% csrf_token %}
           {{ form }}
@@ -14,5 +18,18 @@ Log In
         </form>
         <p>or alternatively, <a href="register/">you can register here</a> </p>
       </div>
+      <div class="introduction">
+        <h2>Who We Are</h2>
+        <p>
+          <a href="https://www.extramilecommunications.com" target="_blank">Extramile Communications</a>
+          is a web agency based in Stone, Staffordshire, specialising in Wordpress websites.
+          Our aim is to provide not only world class websites, but a service that is second to none. We
+          offer Search Engine Management as well as help and advice when it comes to keeping your site up
+          to date.
+        </p>
+        <p>This ticketing portal is designed to allow you, our clients, to discuss issues you are having
+          and allow us to correct these in a timely manner.</p>
+          <p>Or if you want to just give us a thumbs up message, then please, make our day!</p>
+        </div>
     </div>
 {% endblock content %}
