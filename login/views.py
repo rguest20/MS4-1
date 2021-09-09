@@ -27,10 +27,11 @@ def index(request):
             else:
                 messages.error(request, 'Invalid Username/Password')
                 form = LoginForm()
-                return render(request,'tickets/index.html', {'form': form})
+                return render(request, 'tickets/index.html', {'form': form})
     else:
         form = LoginForm()
-        return render(request,'tickets/index.html', {'form': form})
+        return render(request, 'tickets/index.html', {'form': form})
+
 
 def register(request):
     if request.user.is_authenticated:
@@ -51,7 +52,8 @@ def register(request):
             return redirect('/login/register')
         else:
             safepassword = make_password(password)
-            newcontract = Contract.objects.filter(contract_name = contract).first()
+            newcontract = Contract.objects.filter(
+                contract_name=contract).first()
             User = get_user_model()
             newuser = User()
             newuser.username = username
@@ -73,4 +75,4 @@ def register(request):
 
     else:
         form = RegisterUserCompany()
-        return render(request,'tickets/register.html', {'form': form})
+        return render(request, 'tickets/register.html', {'form': form})
