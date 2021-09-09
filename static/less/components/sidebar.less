@@ -3,7 +3,8 @@
   display: grid;
   grid-auto-rows: 150px 50px 50px 50px;
 
-  @media only screen and (max-width: 510px) {
+  @media only screen and (max-width: 525px) {
+    grid-auto-rows: 80px 50px 50px 50px;
     :nth-child(1n+2){
       display: none;
     }
@@ -11,6 +12,8 @@
   &.show {
     :nth-child(1n+2){
       display: block;
+      width: 78vw;
+      text-align: right;
     }
   }
 }
@@ -20,8 +23,13 @@
   display: none;
   top:20px;
   right:20px;
-  font-size: xx-large;
-  @media only screen and (max-width: 510px) {
+  button {
+    font-size: xx-large;
+    background: transparent;
+    width: 50px;
+    border: none;
+  }
+  @media only screen and (max-width: 525px) {
     display: block;
   }
 }

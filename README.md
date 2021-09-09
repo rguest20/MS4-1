@@ -274,3 +274,19 @@ application = get_wsgi_application()`
 **Media**
 
 - The ExtraMile Logo is taken with permission from ExtraMile Communications.  It remains property of ExtraMile and it's use without seeking further permission is prohibited.
+
+
+# **Version 1.1**
+**Updates**
+- Validators added to forms to ensure that no invalid entries are made
+- Stripe payment no longer requires users to use the email that is linked with the
+account. Instead, it is now handled by passing a variable to and from stripe.
+- Registration form updated to allow users to access the site immediately on registration.  They no longer need admin approval.
+- Landing page has information and fluff text added to make the aim of the app more clear.
+- Mobile menu now hidden and accessible via a button press at the top right.
+- Extensive testing of user stories to ensure that the outcomes are met.
+- Refactor of code from 1 main app and a side app to deal with purchasing to 2 main apps and 2 side apps.
+- Code cleaned to PEP8 standards.
+- Logo on splash page made transparent
+- Users who are logged in and switch to the registration page no longer cause a 500 error.
+- Screaming Frog run on the site to test for broken links 

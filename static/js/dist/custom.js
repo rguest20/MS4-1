@@ -92,3 +92,13 @@ function checkIsNumber() {
     document.querySelector('#buyButton').disabled = false;
   }
 }
+
+function showMenu() {
+  target = document.querySelector('.sidebar');
+
+  if (target.classList.contains('show')) {
+    target.classList.remove('show');
+  } else {
+    target.classList.add('show');
+  }
+}
