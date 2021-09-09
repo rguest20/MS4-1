@@ -12,6 +12,8 @@ from datetime import datetime, timezone
 import stripe
 import json
 from django.contrib.auth import get_user_model
+import clients
+
 
 
 def index(request):
@@ -126,7 +128,7 @@ def supportticket(request, number):
     comments = Comment.objects.filter(ticket = ticket).all()
     if company.id != ticket.client.id:
         return redirect('/support')
-    return render(request,'tickets/support/ticket.html', {'company': company, 'ticket': ticket, 'comments': comments})
+    return render(request,'tickets/support/ticket.html', {'company': company, 'ticket': ticket, 'comments': reversed(comments)})
 
 def editticket(request, number):
     if not request.user.is_authenticated:
@@ -163,13 +165,13 @@ def comment(request, number):
     if not request.user.is_authenticated:
         return redirect('/')
 
-    company = Client.objects.filter(user=request.user).first()
+    company = clients.models.Client.objects.filter(user=request.user.pk).first()
     ticket = Ticket.objects.filter(pk = number).first()
-
 
     if company != ticket.client:
         if request.user.is_staff != True:
             return redirect('/')
+
 
     form = CommentForm({'commmenter': company.client_name, 'comment': '', 'file': '',})
     comments = Comment.objects.filter(ticket = number).all()

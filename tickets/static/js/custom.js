@@ -80,7 +80,16 @@ function setupStripe() {
 }
 
 function updatePrice() {
+  checkIsNumber()
   hours = document.querySelector('#hours').value
   target = document.querySelector('#price')
   target.innerHTML = hours * 100
+}
+
+function checkIsNumber() {
+  if (isNaN(document.querySelector('#hours').value)) {
+    document.querySelector('#buyButton').disabled = true
+  } else {
+    document.querySelector('#buyButton').disabled = false
+  }
 }

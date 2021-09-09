@@ -5,7 +5,7 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
 from tickets.models import *
-from .forms import * 
+from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
@@ -26,6 +26,7 @@ def admin_companies(request):
     contracts = Contract.objects.all()
     User = get_user_model()
     users = User.objects.all()
+    finalusers = ""
     userstoremove = []
     for company in companies:
         if company.user in users:

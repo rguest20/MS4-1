@@ -8,7 +8,6 @@ from django.urls import include, re_path
 app_name = 'purchasing'
 urlpatterns = [
     path('buy/', views.buy, name='buy'),
-    path("stripe/", include("djstripe.urls", namespace="djstripe")),
     path("webhook/", views.stripe_webhook, name="webhook"),
     path('config/', views.stripe_config),
     path('cancelled/', views.cancelled, name='cancelled'),
