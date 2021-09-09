@@ -289,4 +289,4 @@ account. Instead, it is now handled by passing a variable to and from stripe.
 - Code cleaned to PEP8 standards.
 - Logo on splash page made transparent
 - Users who are logged in and switch to the registration page no longer cause a 500 error.
-- Screaming Frog run on the site to test for broken links 
+- [Screaming Frog](docs/screamingfrog.png) run on the site to test for broken links 
