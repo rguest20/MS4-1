@@ -10,3 +10,4 @@ psycopg2
 whitenoise
 stripe
 dj-database-url
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
